@@ -1,0 +1,317 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core.dll" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ parameter Name="Param_IsNewFile" Type="System.Boolean"#>
+<#@ parameter Name="Param_IsAddEdit" Type="System.Boolean"#>
+<#@ parameter Name="Param_IsDelete" Type="System.Boolean"#>
+<#@ parameter Name="Param_IsGetAll" Type="System.Boolean"#>
+<#@ parameter Name="Param_IsGetByPrimaryKey" Type="System.Boolean"#>
+<#@ parameter Name="Param_StartNo" Type="System.Int32"#>
+<#@ parameter Name="Param_NameSpace" Type="System.String"#>
+<#@ parameter Name="Param_DbEntities" Type="System.String"#>
+<#@ parameter Name="Param_AllUsing" Type="System.String[]"#>
+<#@ parameter Name="Param_ConnectionString" Type="System.String"#>
+<#@ parameter Name="Param_ProviderName" Type="System.String"#>
+<#@ parameter Name="Param_DatabaseName" Type="System.String"#>
+<#@ parameter Name="Param_ControllerName" Type="System.String"#>
+<#@ parameter Name="Param_TableName" Type="System.String"#>
+<#@ include file="..\_Code\DbHelper.ttinclude" #><#
+	
+var ConnectionString = "Data Source=192.168.1.22;User ID=sa;Password=enssi;Initial Catalog=EnssiAuthenticate";
+var ProviderName = "System.Data.SqlClient";
+var DatabaseName = "EnssiAuthenticate";
+var TableName = "";
+var IsNewFile = true;
+var IsAddEdit = true;
+var IsDelete = true;
+var IsGetAll = true;
+var IsGetByPrimaryKey = true;
+var StartNo = 1;
+var NameSpace = "Enssi.Authenticate.Api";
+var DbEntities = "EnssiAuthenticateEntities db => Api.DbEnssiAuthenticate;";
+string[] AllUsing = new string[]{ "Enssi.Authenticate.Model", "Enssi.Authenticate.Data"};
+var ControllerName = "Authenticate";
+
+var tables = DbHelper.GetDbTables(ConnectionString, DatabaseName, TableName);
+
+if(IsNewFile)
+{
+#>
+using System;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
+using System.Web.Http;
+<#
+	foreach (var item in AllUsing)
+	{
+		 WriteLine("using " + item + ";");
+	}
+#>
+
+namespace <#=NameSpace#>.Controllers
+{
+    public class <#= ControllerName #>Controller : ApiController
+    {
+        <#=DbEntities#>
+<#
+}
+int ApiNoInt = StartNo;
+foreach (var table in tables)
+{
+	if(string.IsNullOrEmpty(table.Remark))
+	{
+		table.Remark = table.TableName;
+    }
+	var columns = DbHelper.GetDbColumns(ConnectionString,DatabaseName, table.TableName);
+	var primarykey = columns.Where(a=>a.IsPrimaryKey).ToList();
+	if(!primarykey.Any())
+	{
+		primarykey.AddRange(columns);
+    }
+	var ApiNo = ((decimal)ApiNoInt).ToString("000");
+	#>
+
+        #region <#=table.Remark#>
+<#
+	if(IsAddEdit)
+    {
+#>
+
+        /// <summary>
+        /// 添加/修改<#=table.Remark#>
+        /// </summary>
+        /// <param name="IsAdd">是否添加</param>
+        /// <param name="Model"><#=table.Remark#>实体</param>
+        /// <returns>添加或修改的实体类</returns>
+        [ActionName("XG<#=ApiNo#>01")]
+        [HttpPost]
+        public ApiResult<<#=table.TableName#>> Edit<#=table.TableName#>(bool IsAdd, <#=table.TableName#> Model)
+        {
+            if (IsAdd)
+            {
+<#
+				foreach (var pk in primarykey)
+                {
+					if(pk.CSharpType == "Guid")
+					{
+				#>
+				if(Model.<#=pk.ColumnName#> == Guid.Empty)
+				{
+					Model.<#=pk.ColumnName#> = Guid.NewGuid();
+				}
+<#
+					}
+                }
+				if(columns.Any(a=>a.ColumnName == "OpID"))
+                {
+				#>
+                Model.OpID = Api.HisUser.ID;
+<#
+                }
+				if(columns.Any(a=>a.ColumnName == "OpName"))
+                {
+				#>
+                Model.OpName = Api.HisUser.Name;
+<#
+                }
+				if(columns.Any(a=>a.ColumnName == "OpDate"))
+                {
+				#>
+                Model.OpDate = DateTime.Now;
+<#
+                }
+				#>
+                db.<#=table.TableName#>.Add(Model);
+            }
+            else
+            {
+                db.<#=table.TableName#>.Attach(Model);
+                var entry = db.Entry(Model);
+                entry.State = EntityState.Modified;
+				
+                // 不想更新的字段列表
+<#
+				var notupdatecols = new string[]{ "OpID","OpName","OpDate" };
+				var notupdatecolumns = columns.Where(a=>notupdatecols.Contains(a.ColumnName)).Select(a=>a.ColumnName).ToList();	
+				#>
+                foreach (var item in new string[] { <#=notupdatecolumns.Any() ? string.Format("\"{0}\"", string.Join("\", \"", notupdatecolumns)) : ""#> })
+                {
+                    entry.Property(item).IsModified = false;
+                }
+            }
+            db.SaveChanges();
+            return new ApiResult<<#=table.TableName#>> { Message = (IsAdd ? "添加" : "修改") + "成功！", Data = Model };
+        }
+<#
+    }
+	if(IsDelete)
+    {
+	#>
+
+        /// <summary>
+        /// 删除<#=table.Remark#>
+        /// </summary>
+<#
+        foreach (var item in primarykey)
+        {
+		#>
+        <#="/// <param name=\"" + item.ColumnName + "\">"+item.Remark+"</param>"#>
+<#
+        }
+		#>
+        /// <returns></returns>
+        [ActionName("SC<#=ApiNo#>01")]
+        [HttpPost]
+        public ApiResult Delete<#=table.TableName#>(<#=string.Join(", ", primarykey.Select(a => a.CSharpType + " " + a.ColumnName))#>)
+        {
+            var model = new <#=table.TableName#> { <#=string.Join(", ", primarykey.Select(a => a.ColumnName + " = " + a.ColumnName))#> };
+            db.<#=table.TableName#>.Attach(model);
+            db.<#=table.TableName#>.Remove(model);
+            db.SaveChanges();
+            return new ApiResult { Message = "删除成功！" };
+        }
+<#
+    }
+	if(IsGetAll)
+    {
+	#>
+
+        /// <summary>
+        /// 获得全部<#=table.Remark#>
+        /// </summary>
+<#
+        foreach (var item in columns)
+        {
+		#>
+        <#="/// <param name=\"" + item.ColumnName + "\">"+item.Remark+"</param>"#>
+<#
+        }
+		#>
+        /// <param name="OrderBy<#=table.TableName#>">排序条件</param>
+        /// <param name="Includes">引用外键</param>
+        /// <param name="PageIndex">第几页</param> 
+        /// <param name="PageSize">页大小</param>
+        /// <returns></returns>
+        [ActionName("CX<#=ApiNo#>01")]
+        [HttpGet]
+        public ApiResult<PagedList<<#=table.TableName#>>> Get<#=table.TableName#>All(<#=string.Join(", ", columns.Select(a => a.NullableCSharpType + " " + a.ColumnName))#>, string OrderBy<#=table.TableName#>, string Includes, int PageIndex, int PageSize)
+        {
+            var result = Get<#=table.TableName#>AllSelector(<#=string.Join(", ", columns.Select(a => a.ColumnName))#>, OrderBy<#=table.TableName#>, "Includes:" + Includes, PageIndex, PageSize);
+
+            return new ApiResult<PagedList<<#=table.TableName#>>> { Data = result.Data.CastPagedList<<#=table.TableName#>>(), ErrorCode = result.ErrorCode, Message = result.Message };
+        }
+
+        /// <summary>
+        /// 获取全部<#=table.Remark#>，自定义返回类型
+        /// </summary>
+<#
+        foreach (var item in columns)
+        {
+		#>
+        <#="/// <param name=\"" + item.ColumnName + "\">"+item.Remark+"</param>"#>
+<#
+        }
+		#>
+        /// <param name="OrderBy<#=table.TableName#>">排序条件</param>
+        /// <param name="Selector<#=table.TableName#>">查询哪些字段</param>
+        /// <param name="PageIndex">第几页</param>
+        /// <param name="PageSize">页大小</param>
+        /// <returns></returns>
+        [ActionName("CX<#=ApiNo#>02")]
+        [HttpGet]
+        public ApiResult<PagedList<object>> Get<#=table.TableName#>AllSelector(<#=string.Join(", ", columns.Select(a => a.NullableCSharpType + " " + a.ColumnName))#>, string OrderBy<#=table.TableName#>, string Selector<#=table.TableName#>, int PageIndex, int PageSize)
+        {
+			var list = db.<#=table.TableName#>.Includes(Utility.GetIncludes(Selector<#=table.TableName#>));
+
+<#
+		foreach (var item in columns)
+		{
+		#>
+<#
+			if(item.CSharpType == "string")
+			{
+			#>
+			if(!string.IsNullOrEmpty(<#=item.ColumnName#>))
+			{
+				if(<#=item.ColumnName#>.StartsWith("="))
+				{
+					var value = <#=item.ColumnName#>.Substring(1);
+					list = list.Where(a => a.<#=item.ColumnName#> == value);
+				}
+				else
+				{
+					list = list.Where(a => a.<#=item.ColumnName#>.Contains(<#=item.ColumnName#>));
+				}
+			}
+<#
+            }
+			else
+            {
+			#>
+			if(<#=item.ColumnName#> != null)
+			{
+				list = list.Where(a => a.<#=item.ColumnName#> == <#=item.ColumnName#>);
+			}
+<#
+            }
+		}
+		#>
+
+            var selector = Utility.DeserializeSelector<<#=table.TableName#>>(Selector<#=table.TableName#>);
+            var orderByList = Utility.DeserializeOrderBy<<#=table.TableName#>>(OrderBy<#=table.TableName#>);
+            if (orderByList.Any())
+            {
+                list = list.OrderByList(orderByList);
+            }
+            else
+            {
+                list = list.OrderBy(a => new { <#=string.Join(", ", primarykey.Select(a=> "a." + a.ColumnName))#> });
+            }
+
+            return new ApiResult<PagedList<object>> { Data = list.SelectObject(selector).ToPagedList(PageIndex, PageSize) };
+        }
+<#
+    }
+	if(IsGetByPrimaryKey)
+    {
+	#>
+
+        /// <summary>
+        /// 获取<#=table.Remark#>
+        /// </summary>
+<#
+        foreach (var item in primarykey)
+        {
+		#>
+        <#="/// <param name=\"" + item.ColumnName + "\">"+item.Remark+"</param>"#>
+<#
+        }
+		#>
+        /// <returns></returns>
+        [ActionName("CX<#=ApiNo#>03")]
+        [HttpGet]
+        public ApiResult<<#=table.TableName#>> Get<#=table.TableName#>(<#=string.Join(", ", primarykey.Select(a => a.CSharpType + " " + a.ColumnName))#>)
+        {
+            var model = db.<#=table.TableName#>.Where(a => <#=string.Join(" && ", primarykey.Select(a => "a." + a.ColumnName + " == " + a.ColumnName))#>).FirstOrDefault();
+            return new ApiResult<<#=table.TableName#>> { Data = model };
+        }
+<#
+    }
+	#>
+
+        #endregion
+<#
+	ApiNoInt++;
+}
+if(IsNewFile)
+{
+#>
+    }
+}
+<#
+}
+#>

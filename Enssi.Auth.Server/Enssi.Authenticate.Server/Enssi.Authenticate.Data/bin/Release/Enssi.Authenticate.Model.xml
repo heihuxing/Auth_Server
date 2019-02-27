@@ -1,0 +1,659 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Enssi.Authenticate.Model</name>
+    </assembly>
+    <members>
+        <member name="T:Enssi.Authenticate.Data.Application">
+            <summary>
+            应用表
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.Application.Name">
+            <summary>
+            应用名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.Application.NameSpace">
+            <summary>
+            命名空间
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.ApproveLog">
+            <summary>
+            审批日志:审批日志
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveLog.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveLog.Keys">
+            <summary>
+            审批流通用Key
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveLog.TemplateID">
+            <summary>
+            模板ID
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveLog.TemplateDetailID">
+            <summary>
+            模板详情ID
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveLog.Rank">
+            <summary>
+            流程环节序号
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveLog.RankName">
+            <summary>
+            环节名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveLog.Count">
+            <summary>
+            第几次
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveLog.ApproveUserID">
+            <summary>
+            当前审批人编号
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveLog.ApproveUserName">
+            <summary>
+            当前审批人名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveLog.Result">
+            <summary>
+            审批结果
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveLog.Reason">
+            <summary>
+            原因
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveLog.ApproveTime">
+            <summary>
+            当前审批日期
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.ApproveTemplate">
+            <summary>
+            通用审批模板:通用审批模板
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveTemplate.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveTemplate.SystemName">
+            <summary>
+            应用名
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveTemplate.ModuleName">
+            <summary>
+            模块名
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveTemplate.Remark">
+            <summary>
+            审批流说明
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.ApproveTemplateDetail">
+            <summary>
+            通用审批模板明细:通用审批模板明细
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveTemplateDetail.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveTemplateDetail.TemplateID">
+            <summary>
+            模板ID
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveTemplateDetail.Rank">
+            <summary>
+            流程环节序号
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveTemplateDetail.RankName">
+            <summary>
+            环节名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveTemplateDetail.PassRank">
+            <summary>
+            通过后环节
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveTemplateDetail.PassState">
+            <summary>
+            通过后状态
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveTemplateDetail.RejectRank">
+            <summary>
+            拒绝后环节
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.ApproveTemplateDetail.RejectState">
+            <summary>
+            拒绝后状态
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.CommonWords.CommonID">
+            <summary>
+            常用词缩写
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.CommonWords.CommonNo">
+            <summary>
+            常用词完整
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.CommonWords.CommonName">
+            <summary>
+            常用词名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.CommonWords.Remark">
+            <summary>
+            说明
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.InterfaceDetail.InterfaceID">
+            <summary>
+            接口编号(传自主表)
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.InterfaceDetail.ParameterNo">
+            <summary>
+            参数编码
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.InterfaceDetail.ParameterName">
+            <summary>
+            参数名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.InterfaceDetail.ParameterType">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.InterfaceDetail.ParameterLen">
+            <summary>
+            最大长度
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.InterfaceDetail.IsNull">
+            <summary>
+            是否必填
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.InterfaceMain.InterfaceNo">
+            <summary>
+            接口编码
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.InterfaceMain.BelongSystem">
+            <summary>
+            所属系统
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.InterfaceMain.BelongModule">
+            <summary>
+            所属模块
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.InterfaceMain.Operation">
+            <summary>
+            操作类型
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.InterfaceMain.InExample">
+            <summary>
+            输入参数
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.InterfaceMain.OutExample">
+            <summary>
+            输出参数
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.InterfaceMain.Parameter">
+            <summary>
+            举例
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.InterfaceMain.Remark">
+            <summary>
+            说明
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.InterfaceMain.IsDeleted">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.InterfaceMain.CreateUserID">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.InterfaceMain.CreateDate">
+            <summary>
+            创建日期
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.Organization">
+            <summary>
+            组织架构表
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.Organization.Name">
+            <summary>
+            组织架构名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.Organization.Type">
+            <summary>
+            组织架构类型
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.Organization.ParentID">
+            <summary>
+            父级Id
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.Organization.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.Organization.Path">
+            <summary>
+            名称路径
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.Organization.IdPath">
+            <summary>
+            ID路径
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.Organization.GeneralID">
+            <summary>
+            通用组织ID
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.OrganizationGeneral">
+            <summary>
+            通用组织
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.OrganizationGeneral.ID">
+            <summary>
+            编号
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.OrganizationGeneral.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.OrganizationGeneral.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.OrganizationGeneral.Description">
+            <summary>
+            说明
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.OrganizationGeneral.Group">
+            <summary>
+            分组
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.PermissionBtn">
+            <summary>
+            权限按钮表
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionBtn.ButtonName">
+            <summary>
+            按钮名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionBtn.FormName">
+            <summary>
+            窗体名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionBtn.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionBtn.NoPermissionType">
+            <summary>
+            无权限时操作方式：禁用，隐藏
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.PermissionBtnInterface">
+            <summary>
+            权限按钮权限功能关系表
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionBtnInterface.PermissionButtonID">
+            <summary>
+            权限按钮Id
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionBtnInterface.PermissionInterfaceID">
+            <summary>
+            权限功能Id
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.PermissionBtnRole">
+            <summary>
+            权限按钮角色关系表
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionBtnRole.PermissionButtonID">
+            <summary>
+            权限按钮Id
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionBtnRole.RoleID">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.PermissionGroup">
+            <summary>
+            功能类型表
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionGroup.Name">
+            <summary>
+            类型名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionGroup.ApplicationID">
+            <summary>
+            应用Id
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionGroup.ParentID">
+            <summary>
+            父级Id
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionGroup.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionGroup.IdPath">
+            <summary>
+            ID路径
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionGroup.Path">
+            <summary>
+            名称路径
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.PermissionInterface">
+            <summary>
+            权限接口表
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionInterface.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionInterface.ApplicationID">
+            <summary>
+            应用Id
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionInterface.ControllerName">
+            <summary>
+            控制器名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionInterface.MethodName">
+            <summary>
+            方法名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionInterface.ActionName">
+            <summary>
+            动作名称
+            </summary>
+        </member>
+        <!-- 对于成员“P:Enssi.Authenticate.Data.PermissionInterface.QueryString”忽略有格式错误的 XML 注释 -->
+        <member name="T:Enssi.Authenticate.Data.PermissionInterfaceRole">
+            <summary>
+            接口角色关系表
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionInterfaceRole.PermissionInterfaceID">
+            <summary>
+            功能Id
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.PermissionInterfaceRole.RoleID">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.Role">
+            <summary>
+            角色表
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.Role.Name">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.Role.Description">
+            <summary>
+            角色的说明
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.User">
+            <summary>
+            用户表
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.User.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.User.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.User.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.User.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.User.Signature">
+            <summary>
+            签名
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.User.Fingerprint">
+            <summary>
+            指纹
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.User.FingerprintSpare">
+            <summary>
+            指纹备用
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.UserToken">
+            <summary>
+            用户登录令牌表
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.UserToken.UserID">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.UserToken.ApplicationID">
+            <summary>
+            应用Id
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.UserToken.UpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.UserToRole">
+            <summary>
+            用户角色关系表
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.UserToRole.UserID">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Data.UserToRole.RoleID">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.V_PermissionBtnQuery">
+            <summary>
+            System.Data.SqlClient
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.V_PermissionBtnRoleQuery">
+            <summary>
+            System.Data.SqlClient
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.V_PermissionInterfaceQuery">
+            <summary>
+            System.Data.SqlClient
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.V_UserPermissionQuery">
+            <summary>
+            System.Data.SqlClient
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Data.V_UserToRoleQuery">
+            <summary>
+            System.Data.SqlClient
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Model.Auth_Login_Result">
+            <summary>
+            登录返回值
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Model.Auth_Login_Result.UserID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Model.Auth_Login_Result.UserToken">
+            <summary>
+            用户令牌
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Model.Auth_Login_Result.UserName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Model.Auth_Login_Result.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Model.FingerprintModel">
+            <summary>
+            指纹模型
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Model.FingerprintModel.FID">
+            <summary>
+            int型识别码或顺序号
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Model.FingerprintModel.GID">
+            <summary>
+            Guid型识别码
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Model.FingerprintModel.SID">
+            <summary>
+            string型识别码或字段
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Model.FingerprintModel.SValue">
+            <summary>
+            string型字段
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Model.FingerprintModel.FingerValue">
+            <summary>
+            指纹
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Model.PermissionBtnUser.ButtonName">
+            <summary>
+            按钮名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Model.PermissionBtnUser.FormName">
+            <summary>
+            窗体名称
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Model.PermissionBtnUser.NoPermissionType">
+            <summary>
+            无权限时操作方式：禁用，隐藏
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Model.PermissionBtnUser.HasPermission">
+            <summary>
+            是否拥有权限
+            </summary>
+        </member>
+    </members>
+</doc>

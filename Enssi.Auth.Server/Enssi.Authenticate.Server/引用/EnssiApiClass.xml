@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EnssiApiClass</name>
+    </assembly>
+    <members>
+        <member name="M:Enssi.ApiCall.GetMd5HashStr(System.String)">
+            <summary>
+            MD5(32位加密)
+            </summary>
+            <param name="str">需要加密的字符串</param>
+            <returns>MD5加密后的字符串</returns>
+        </member>
+        <member name="M:Enssi.ApiCall.QueryString(System.String,System.Object)">
+            <summary>
+            构造Url参数
+            </summary>
+            <param name="url">Url</param>
+            <param name="param">参数</param>
+            <returns>带参数的Url</returns>
+        </member>
+        <member name="M:Enssi.ApiCall.QueryString(System.String,System.String,System.Object)">
+            <summary>
+            构造Url参数
+            </summary>
+            <param name="url">Url</param>
+            <param name="key">参数Key</param>
+            <param name="value">参数Value</param>
+            <returns>带参数的Url</returns>
+        </member>
+        <member name="M:Enssi.ApiCall.GZipCompressString(System.String)">
+            <summary>
+            将传入字符串以GZip算法压缩后，返回Base64编码字符
+            </summary>
+            <param name="rawString">需要压缩的字符串</param>
+            <returns>压缩后的Base64编码的字符串</returns>
+        </member>
+        <member name="M:Enssi.ApiCall.Compress(System.Byte[])">
+            <summary>
+            GZip压缩
+            </summary>
+            <param name="rawData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.ApiCall.GZipDecompressString(System.String)">
+            <summary>
+            将传入的二进制字符串资料以GZip算法解压缩
+            </summary>
+            <param name="zippedString">经GZip压缩后的二进制字符串</param>
+            <returns>原始未压缩字符串</returns>
+        </member>
+        <member name="M:Enssi.ApiCall.Decompress(System.Byte[])">
+            <summary>
+            ZIP解压
+            </summary>
+            <param name="zippedData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Enssi.ApiResult">
+            <summary>
+            Api返回类型
+            </summary>
+        </member>
+        <member name="P:Enssi.ApiResult.ErrorCode">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="P:Enssi.ApiResult.Message">
+            <summary>
+            信息
+            </summary>
+        </member>
+        <member name="T:Enssi.ApiResult`1">
+            <summary>
+            Api返回类型带数据
+            </summary>
+        </member>
+        <member name="P:Enssi.ApiResult`1.ErrorCode">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="P:Enssi.ApiResult`1.Message">
+            <summary>
+            信息
+            </summary>
+        </member>
+        <member name="P:Enssi.ApiResult`1.Data">
+            <summary>
+            数据
+            </summary>
+        </member>
+    </members>
+</doc>

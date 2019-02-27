@@ -1,0 +1,2364 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Enssi.Authenticate.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditApplication(System.Boolean,Enssi.Authenticate.Data.Application)">
+            <summary>
+            添加/修改应用表
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">应用表实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeleteApplication(System.Guid)">
+            <summary>
+            删除应用表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetApplicationAll(System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部应用表
+            </summary>
+            <param name="ID"></param>
+            <param name="Name">应用名称</param>
+            <param name="NameSpace">命名空间</param>
+            <param name="Description"></param>
+            <param name="OrderByApplication">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetApplicationAllSelector(System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部应用表，自定义返回类型
+            </summary>
+            <param name="ID"></param>
+            <param name="Name">应用名称</param>
+            <param name="NameSpace">命名空间</param>
+            <param name="Description"></param>
+            <param name="OrderByApplication">排序条件</param>
+            <param name="SelectorApplication">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetApplication(System.Guid)">
+            <summary>
+            获取应用表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditApproveLog(System.Boolean,Enssi.Authenticate.Data.ApproveLog)">
+            <summary>
+            添加/修改审批日志
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">审批日志实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeleteApproveLog(System.Guid)">
+            <summary>
+            删除审批日志
+            </summary>
+            <param name="ID">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetApproveLogAll(System.Nullable{System.Guid},System.String,System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Guid},System.String,System.Nullable{System.Int32},System.String,System.String,System.Nullable{System.DateTime},System.String,System.Nullable{System.Int32},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部审批日志
+            </summary>
+            <param name="ID">ID</param>
+            <param name="Keys">审批流通用Key</param>
+            <param name="TemplateID">模板ID</param>
+            <param name="TemplateDetailID">模板详情ID</param>
+            <param name="Rank">流程环节序号</param>
+            <param name="RankName">环节名称</param>
+            <param name="Count">第几次</param>
+            <param name="ApproveUserID">当前审批人编号</param>
+            <param name="ApproveUserName">当前审批人名称</param>
+            <param name="Result">审批结果</param>
+            <param name="ResultState"></param>
+            <param name="Reason">原因</param>
+            <param name="ApproveTime">当前审批日期</param>
+            <param name="HistoryData"></param>
+            <param name="NextRank"></param>
+            <param name="OrderByApproveLog">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetApproveLogAllSelector(System.Nullable{System.Guid},System.String,System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.Nullable{System.Guid},System.String,System.Nullable{System.Int32},System.String,System.String,System.Nullable{System.DateTime},System.String,System.Nullable{System.Int32},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部审批日志，自定义返回类型
+            </summary>
+            <param name="ID">ID</param>
+            <param name="Keys">审批流通用Key</param>
+            <param name="TemplateID">模板ID</param>
+            <param name="TemplateDetailID">模板详情ID</param>
+            <param name="Rank">流程环节序号</param>
+            <param name="RankName">环节名称</param>
+            <param name="Count">第几次</param>
+            <param name="ApproveUserID">当前审批人编号</param>
+            <param name="ApproveUserName">当前审批人名称</param>
+            <param name="Result">审批结果</param>
+            <param name="ResultState"></param>
+            <param name="Reason">原因</param>
+            <param name="ApproveTime">当前审批日期</param>
+            <param name="HistoryData"></param>
+            <param name="NextRank"></param>
+            <param name="OrderByApproveLog">排序条件</param>
+            <param name="SelectorApproveLog">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetApproveLog(System.Guid)">
+            <summary>
+            获取审批日志
+            </summary>
+            <param name="ID">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditApproveTemplate(System.Boolean,Enssi.Authenticate.Data.ApproveTemplate)">
+            <summary>
+            添加/修改通用审批模板
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">通用审批模板实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeleteApproveTemplate(System.Guid)">
+            <summary>
+            删除通用审批模板
+            </summary>
+            <param name="ID">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetApproveTemplateAll(System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部通用审批模板
+            </summary>
+            <param name="ID">ID</param>
+            <param name="SystemName">应用名</param>
+            <param name="ModuleName">模块名</param>
+            <param name="Remark">审批流说明</param>
+            <param name="PassState"></param>
+            <param name="OrderByApproveTemplate">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetApproveTemplateAllSelector(System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部通用审批模板，自定义返回类型
+            </summary>
+            <param name="ID">ID</param>
+            <param name="SystemName">应用名</param>
+            <param name="ModuleName">模块名</param>
+            <param name="Remark">审批流说明</param>
+            <param name="PassState"></param>
+            <param name="OrderByApproveTemplate">排序条件</param>
+            <param name="SelectorApproveTemplate">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetApproveTemplate(System.Guid)">
+            <summary>
+            获取通用审批模板
+            </summary>
+            <param name="ID">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditApproveTemplateDetail(System.Boolean,Enssi.Authenticate.Data.ApproveTemplateDetail)">
+            <summary>
+            添加/修改通用审批模板明细
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">通用审批模板明细实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeleteApproveTemplateDetail(System.Guid)">
+            <summary>
+            删除通用审批模板明细
+            </summary>
+            <param name="ID">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetApproveTemplateDetailAll(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.String,System.Nullable{System.Guid},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部通用审批模板明细
+            </summary>
+            <param name="ID">ID</param>
+            <param name="TemplateID">模板ID</param>
+            <param name="Rank">流程环节序号</param>
+            <param name="RankName">环节名称</param>
+            <param name="PassRank">通过后环节</param>
+            <param name="PassState">通过后状态</param>
+            <param name="RejectRank">拒绝后环节</param>
+            <param name="RejectState">拒绝后状态</param>
+            <param name="RoleID"></param>
+            <param name="OrderByApproveTemplateDetail">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetApproveTemplateDetailAllSelector(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.String,System.Nullable{System.Guid},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部通用审批模板明细，自定义返回类型
+            </summary>
+            <param name="ID">ID</param>
+            <param name="TemplateID">模板ID</param>
+            <param name="Rank">流程环节序号</param>
+            <param name="RankName">环节名称</param>
+            <param name="PassRank">通过后环节</param>
+            <param name="PassState">通过后状态</param>
+            <param name="RejectRank">拒绝后环节</param>
+            <param name="RejectState">拒绝后状态</param>
+            <param name="RoleID"></param>
+            <param name="OrderByApproveTemplateDetail">排序条件</param>
+            <param name="SelectorApproveTemplateDetail">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetApproveTemplateDetail(System.Guid)">
+            <summary>
+            获取通用审批模板明细
+            </summary>
+            <param name="ID">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditCommonWords(System.Boolean,Enssi.Authenticate.Data.CommonWords)">
+            <summary>
+            添加/修改CommonWords
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">CommonWords实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeleteCommonWords(System.Guid)">
+            <summary>
+            删除CommonWords
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetCommonWordsAll(System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部CommonWords
+            </summary>
+            <param name="ID"></param>
+            <param name="CommonID">常用词缩写</param>
+            <param name="CommonNo">常用词完整</param>
+            <param name="CommonName">常用词名称</param>
+            <param name="Remark">说明</param>
+            <param name="OrderByCommonWords">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetCommonWordsAllSelector(System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部CommonWords，自定义返回类型
+            </summary>
+            <param name="ID"></param>
+            <param name="CommonID">常用词缩写</param>
+            <param name="CommonNo">常用词完整</param>
+            <param name="CommonName">常用词名称</param>
+            <param name="Remark">说明</param>
+            <param name="OrderByCommonWords">排序条件</param>
+            <param name="SelectorCommonWords">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetCommonWords(System.Guid)">
+            <summary>
+            获取CommonWords
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditInterfaceDetail(System.Boolean,Enssi.Authenticate.Data.InterfaceDetail)">
+            <summary>
+            添加/修改InterfaceDetail
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">InterfaceDetail实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeleteInterfaceDetail(System.Guid)">
+            <summary>
+            删除InterfaceDetail
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetInterfaceDetailAll(System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部InterfaceDetail
+            </summary>
+            <param name="ID"></param>
+            <param name="InterfaceID">接口编号(传自主表)</param>
+            <param name="ParameterNo">参数编码</param>
+            <param name="ParameterName">参数名称</param>
+            <param name="ParameterType">类型</param>
+            <param name="ParameterLen">最大长度</param>
+            <param name="IsNull">是否必填</param>
+            <param name="OrderByInterfaceDetail">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetInterfaceDetailAllSelector(System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部InterfaceDetail，自定义返回类型
+            </summary>
+            <param name="ID"></param>
+            <param name="InterfaceID">接口编号(传自主表)</param>
+            <param name="ParameterNo">参数编码</param>
+            <param name="ParameterName">参数名称</param>
+            <param name="ParameterType">类型</param>
+            <param name="ParameterLen">最大长度</param>
+            <param name="IsNull">是否必填</param>
+            <param name="OrderByInterfaceDetail">排序条件</param>
+            <param name="SelectorInterfaceDetail">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetInterfaceDetail(System.Guid)">
+            <summary>
+            获取InterfaceDetail
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditInterfaceDetailHist(System.Boolean,Enssi.Authenticate.Data.InterfaceDetailHist)">
+            <summary>
+            添加/修改InterfaceDetailHist
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">InterfaceDetailHist实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeleteInterfaceDetailHist(System.Guid)">
+            <summary>
+            删除InterfaceDetailHist
+            </summary>
+            <param name="PK"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetInterfaceDetailHistAll(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部InterfaceDetailHist
+            </summary>
+            <param name="PK"></param>
+            <param name="ID"></param>
+            <param name="InterfaceID"></param>
+            <param name="ParameterNo"></param>
+            <param name="ParameterName"></param>
+            <param name="ParameterType"></param>
+            <param name="ParameterLen"></param>
+            <param name="IsNull"></param>
+            <param name="Flag"></param>
+            <param name="OrderByInterfaceDetailHist">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetInterfaceDetailHistAllSelector(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部InterfaceDetailHist，自定义返回类型
+            </summary>
+            <param name="PK"></param>
+            <param name="ID"></param>
+            <param name="InterfaceID"></param>
+            <param name="ParameterNo"></param>
+            <param name="ParameterName"></param>
+            <param name="ParameterType"></param>
+            <param name="ParameterLen"></param>
+            <param name="IsNull"></param>
+            <param name="Flag"></param>
+            <param name="OrderByInterfaceDetailHist">排序条件</param>
+            <param name="SelectorInterfaceDetailHist">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetInterfaceDetailHist(System.Guid)">
+            <summary>
+            获取InterfaceDetailHist
+            </summary>
+            <param name="PK"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditInterfaceMain(System.Boolean,Enssi.Authenticate.Data.InterfaceMain)">
+            <summary>
+            添加/修改InterfaceMain
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">InterfaceMain实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeleteInterfaceMain(System.Guid)">
+            <summary>
+            删除InterfaceMain
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetInterfaceMainAll(System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Guid},System.Nullable{System.DateTime},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部InterfaceMain
+            </summary>
+            <param name="ID"></param>
+            <param name="InterfaceNo">接口编码</param>
+            <param name="BelongSystem">所属系统</param>
+            <param name="BelongModule">所属模块</param>
+            <param name="Operation">操作类型</param>
+            <param name="InExample">输入参数</param>
+            <param name="OutExample">输出参数</param>
+            <param name="Parameter">举例</param>
+            <param name="Remark">说明</param>
+            <param name="IsDeleted">是否删除</param>
+            <param name="CreateUserID">创建人</param>
+            <param name="CreateDate">创建日期</param>
+            <param name="OrderByInterfaceMain">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetInterfaceMainAllSelector(System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Guid},System.Nullable{System.DateTime},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部InterfaceMain，自定义返回类型
+            </summary>
+            <param name="ID"></param>
+            <param name="InterfaceNo">接口编码</param>
+            <param name="BelongSystem">所属系统</param>
+            <param name="BelongModule">所属模块</param>
+            <param name="Operation">操作类型</param>
+            <param name="InExample">输入参数</param>
+            <param name="OutExample">输出参数</param>
+            <param name="Parameter">举例</param>
+            <param name="Remark">说明</param>
+            <param name="IsDeleted">是否删除</param>
+            <param name="CreateUserID">创建人</param>
+            <param name="CreateDate">创建日期</param>
+            <param name="OrderByInterfaceMain">排序条件</param>
+            <param name="SelectorInterfaceMain">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetInterfaceMain(System.Guid)">
+            <summary>
+            获取InterfaceMain
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditInterfaceMainHist(System.Boolean,Enssi.Authenticate.Data.InterfaceMainHist)">
+            <summary>
+            添加/修改InterfaceMainHist
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">InterfaceMainHist实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeleteInterfaceMainHist(System.Guid)">
+            <summary>
+            删除InterfaceMainHist
+            </summary>
+            <param name="PK"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetInterfaceMainHistAll(System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Guid},System.Nullable{System.DateTime},System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部InterfaceMainHist
+            </summary>
+            <param name="PK"></param>
+            <param name="ID"></param>
+            <param name="InterfaceNo"></param>
+            <param name="BelongSystem"></param>
+            <param name="BelongModule"></param>
+            <param name="Operation"></param>
+            <param name="InExample"></param>
+            <param name="OutExample"></param>
+            <param name="Parameter"></param>
+            <param name="Remark"></param>
+            <param name="IsDeleted"></param>
+            <param name="CreateUserID"></param>
+            <param name="CreateDate"></param>
+            <param name="Flag"></param>
+            <param name="OrderByInterfaceMainHist">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetInterfaceMainHistAllSelector(System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Guid},System.Nullable{System.DateTime},System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部InterfaceMainHist，自定义返回类型
+            </summary>
+            <param name="PK"></param>
+            <param name="ID"></param>
+            <param name="InterfaceNo"></param>
+            <param name="BelongSystem"></param>
+            <param name="BelongModule"></param>
+            <param name="Operation"></param>
+            <param name="InExample"></param>
+            <param name="OutExample"></param>
+            <param name="Parameter"></param>
+            <param name="Remark"></param>
+            <param name="IsDeleted"></param>
+            <param name="CreateUserID"></param>
+            <param name="CreateDate"></param>
+            <param name="Flag"></param>
+            <param name="OrderByInterfaceMainHist">排序条件</param>
+            <param name="SelectorInterfaceMainHist">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetInterfaceMainHist(System.Guid)">
+            <summary>
+            获取InterfaceMainHist
+            </summary>
+            <param name="PK"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditOrganization(System.Boolean,Enssi.Authenticate.Data.Organization)">
+            <summary>
+            添加/修改组织架构表
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">组织架构表实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeleteOrganization(System.Guid)">
+            <summary>
+            删除组织架构表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetOrganizationAll(System.Nullable{System.Guid},System.String,System.String,System.Nullable{System.Guid},System.Nullable{System.Int32},System.String,System.String,System.Nullable{System.Guid},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部组织架构表
+            </summary>
+            <param name="ID"></param>
+            <param name="Name">组织架构名称</param>
+            <param name="Type">组织架构类型</param>
+            <param name="ParentID">父级Id</param>
+            <param name="Sort">排序</param>
+            <param name="Path">名称路径</param>
+            <param name="IdPath">ID路径</param>
+            <param name="GeneralID">通用组织ID</param>
+            <param name="OrderByOrganization">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetOrganizationAllSelector(System.Nullable{System.Guid},System.String,System.String,System.Nullable{System.Guid},System.Nullable{System.Int32},System.String,System.String,System.Nullable{System.Guid},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部组织架构表，自定义返回类型
+            </summary>
+            <param name="ID"></param>
+            <param name="Name">组织架构名称</param>
+            <param name="Type">组织架构类型</param>
+            <param name="ParentID">父级Id</param>
+            <param name="Sort">排序</param>
+            <param name="Path">名称路径</param>
+            <param name="IdPath">ID路径</param>
+            <param name="GeneralID">通用组织ID</param>
+            <param name="OrderByOrganization">排序条件</param>
+            <param name="SelectorOrganization">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetOrganization(System.Guid)">
+            <summary>
+            获取组织架构表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditOrganizationGeneral(System.Boolean,Enssi.Authenticate.Data.OrganizationGeneral)">
+            <summary>
+            添加/修改通用组织
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">通用组织实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeleteOrganizationGeneral(System.Guid)">
+            <summary>
+            删除通用组织
+            </summary>
+            <param name="ID">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetOrganizationGeneralAll(System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部通用组织
+            </summary>
+            <param name="ID">编号</param>
+            <param name="Name">名称</param>
+            <param name="Type">类型</param>
+            <param name="Description">说明</param>
+            <param name="Group">分组</param>
+            <param name="OrderByOrganizationGeneral">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetOrganizationGeneralAllSelector(System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部通用组织，自定义返回类型
+            </summary>
+            <param name="ID">编号</param>
+            <param name="Name">名称</param>
+            <param name="Type">类型</param>
+            <param name="Description">说明</param>
+            <param name="Group">分组</param>
+            <param name="OrderByOrganizationGeneral">排序条件</param>
+            <param name="SelectorOrganizationGeneral">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetOrganizationGeneral(System.Guid)">
+            <summary>
+            获取通用组织
+            </summary>
+            <param name="ID">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditPermissionBtn(System.Boolean,Enssi.Authenticate.Data.PermissionBtn)">
+            <summary>
+            添加/修改权限按钮表
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">权限按钮表实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeletePermissionBtn(System.Guid)">
+            <summary>
+            删除权限按钮表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionBtnAll(System.Nullable{System.Guid},System.String,System.String,System.String,System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部权限按钮表
+            </summary>
+            <param name="ID"></param>
+            <param name="ButtonName">按钮名称</param>
+            <param name="FormName">窗体名称</param>
+            <param name="DisplayName">显示名称</param>
+            <param name="ApplicationID"></param>
+            <param name="PermissionGroupID"></param>
+            <param name="NoPermissionType">无权限时操作方式：禁用，隐藏</param>
+            <param name="OrderByPermissionBtn">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionBtnAllSelector(System.Nullable{System.Guid},System.String,System.String,System.String,System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部权限按钮表，自定义返回类型
+            </summary>
+            <param name="ID"></param>
+            <param name="ButtonName">按钮名称</param>
+            <param name="FormName">窗体名称</param>
+            <param name="DisplayName">显示名称</param>
+            <param name="ApplicationID"></param>
+            <param name="PermissionGroupID"></param>
+            <param name="NoPermissionType">无权限时操作方式：禁用，隐藏</param>
+            <param name="OrderByPermissionBtn">排序条件</param>
+            <param name="SelectorPermissionBtn">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionBtn(System.Guid)">
+            <summary>
+            获取权限按钮表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditPermissionBtnInterface(System.Boolean,Enssi.Authenticate.Data.PermissionBtnInterface)">
+            <summary>
+            添加/修改权限按钮权限功能关系表
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">权限按钮权限功能关系表实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeletePermissionBtnInterface(System.Guid)">
+            <summary>
+            删除权限按钮权限功能关系表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionBtnInterfaceAll(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部权限按钮权限功能关系表
+            </summary>
+            <param name="ID"></param>
+            <param name="PermissionButtonID">权限按钮Id</param>
+            <param name="PermissionInterfaceID">权限功能Id</param>
+            <param name="OrderByPermissionBtnInterface">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionBtnInterfaceAllSelector(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部权限按钮权限功能关系表，自定义返回类型
+            </summary>
+            <param name="ID"></param>
+            <param name="PermissionButtonID">权限按钮Id</param>
+            <param name="PermissionInterfaceID">权限功能Id</param>
+            <param name="OrderByPermissionBtnInterface">排序条件</param>
+            <param name="SelectorPermissionBtnInterface">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionBtnInterface(System.Guid)">
+            <summary>
+            获取权限按钮权限功能关系表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditPermissionBtnRole(System.Boolean,Enssi.Authenticate.Data.PermissionBtnRole)">
+            <summary>
+            添加/修改权限按钮角色关系表
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">权限按钮角色关系表实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeletePermissionBtnRole(System.Guid)">
+            <summary>
+            删除权限按钮角色关系表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionBtnRoleAll(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部权限按钮角色关系表
+            </summary>
+            <param name="ID"></param>
+            <param name="PermissionButtonID">权限按钮Id</param>
+            <param name="RoleID">角色Id</param>
+            <param name="OrderByPermissionBtnRole">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionBtnRoleAllSelector(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部权限按钮角色关系表，自定义返回类型
+            </summary>
+            <param name="ID"></param>
+            <param name="PermissionButtonID">权限按钮Id</param>
+            <param name="RoleID">角色Id</param>
+            <param name="OrderByPermissionBtnRole">排序条件</param>
+            <param name="SelectorPermissionBtnRole">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionBtnRole(System.Guid)">
+            <summary>
+            获取权限按钮角色关系表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditPermissionGroup(System.Boolean,Enssi.Authenticate.Data.PermissionGroup)">
+            <summary>
+            添加/修改功能类型表
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">功能类型表实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeletePermissionGroup(System.Guid)">
+            <summary>
+            删除功能类型表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionGroupAll(System.Nullable{System.Guid},System.String,System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Int32},System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部功能类型表
+            </summary>
+            <param name="ID"></param>
+            <param name="Name">类型名称</param>
+            <param name="ApplicationID">应用Id</param>
+            <param name="ParentID">父级Id</param>
+            <param name="Sort">排序</param>
+            <param name="IdPath">ID路径</param>
+            <param name="Path">名称路径</param>
+            <param name="Description"></param>
+            <param name="OrderByPermissionGroup">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionGroupAllSelector(System.Nullable{System.Guid},System.String,System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Int32},System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部功能类型表，自定义返回类型
+            </summary>
+            <param name="ID"></param>
+            <param name="Name">类型名称</param>
+            <param name="ApplicationID">应用Id</param>
+            <param name="ParentID">父级Id</param>
+            <param name="Sort">排序</param>
+            <param name="IdPath">ID路径</param>
+            <param name="Path">名称路径</param>
+            <param name="Description"></param>
+            <param name="OrderByPermissionGroup">排序条件</param>
+            <param name="SelectorPermissionGroup">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionGroup(System.Guid)">
+            <summary>
+            获取功能类型表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditPermissionInterface(System.Boolean,Enssi.Authenticate.Data.PermissionInterface)">
+            <summary>
+            添加/修改权限接口表
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">权限接口表实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeletePermissionInterface(System.Guid)">
+            <summary>
+            删除权限接口表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionInterfaceAll(System.Nullable{System.Guid},System.String,System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32)" -->
+        <!-- Badly formed XML comment ignored for member "M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionInterfaceAllSelector(System.Nullable{System.Guid},System.String,System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32)" -->
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionInterface(System.Guid)">
+            <summary>
+            获取权限接口表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditPermissionInterfaceRole(System.Boolean,Enssi.Authenticate.Data.PermissionInterfaceRole)">
+            <summary>
+            添加/修改接口角色关系表
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">接口角色关系表实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeletePermissionInterfaceRole(System.Guid)">
+            <summary>
+            删除接口角色关系表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionInterfaceRoleAll(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部接口角色关系表
+            </summary>
+            <param name="ID"></param>
+            <param name="PermissionInterfaceID">功能Id</param>
+            <param name="RoleID">角色Id</param>
+            <param name="OrderByPermissionInterfaceRole">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionInterfaceRoleAllSelector(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部接口角色关系表，自定义返回类型
+            </summary>
+            <param name="ID"></param>
+            <param name="PermissionInterfaceID">功能Id</param>
+            <param name="RoleID">角色Id</param>
+            <param name="OrderByPermissionInterfaceRole">排序条件</param>
+            <param name="SelectorPermissionInterfaceRole">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetPermissionInterfaceRole(System.Guid)">
+            <summary>
+            获取接口角色关系表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditRole(System.Boolean,Enssi.Authenticate.Data.Role)">
+            <summary>
+            添加/修改角色表
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">角色表实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeleteRole(System.Guid)">
+            <summary>
+            删除角色表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetRoleAll(System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部角色表
+            </summary>
+            <param name="ID"></param>
+            <param name="Name">角色名称</param>
+            <param name="Description">角色的说明</param>
+            <param name="OrderByRole">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetRoleAllSelector(System.Nullable{System.Guid},System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部角色表，自定义返回类型
+            </summary>
+            <param name="ID"></param>
+            <param name="Name">角色名称</param>
+            <param name="Description">角色的说明</param>
+            <param name="OrderByRole">排序条件</param>
+            <param name="SelectorRole">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetRole(System.Guid)">
+            <summary>
+            获取角色表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditUser(System.Boolean,Enssi.Authenticate.Data.User)">
+            <summary>
+            添加/修改用户表
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">用户表实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeleteUser(System.Guid)">
+            <summary>
+            删除用户表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetUserAll(System.Nullable{System.Guid},System.String,System.String,System.String,System.Nullable{System.DateTime},System.Byte[],System.Byte[],System.Byte[],System.Nullable{System.Int32},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部用户表
+            </summary>
+            <param name="ID"></param>
+            <param name="Account">账号</param>
+            <param name="Password">密码</param>
+            <param name="Name">名称</param>
+            <param name="CreateTime">创建时间</param>
+            <param name="Signature">签名</param>
+            <param name="Fingerprint">指纹</param>
+            <param name="FingerprintSpare">指纹备用</param>
+            <param name="IsDeleted"></param>
+            <param name="OrderByUser">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetUserAllSelector(System.Nullable{System.Guid},System.String,System.String,System.String,System.Nullable{System.DateTime},System.Byte[],System.Byte[],System.Byte[],System.Nullable{System.Int32},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部用户表，自定义返回类型
+            </summary>
+            <param name="ID"></param>
+            <param name="Account">账号</param>
+            <param name="Password">密码</param>
+            <param name="Name">名称</param>
+            <param name="CreateTime">创建时间</param>
+            <param name="Signature">签名</param>
+            <param name="Fingerprint">指纹</param>
+            <param name="FingerprintSpare">指纹备用</param>
+            <param name="IsDeleted"></param>
+            <param name="OrderByUser">排序条件</param>
+            <param name="SelectorUser">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetUser(System.Guid)">
+            <summary>
+            获取用户表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditUserToken(System.Boolean,Enssi.Authenticate.Data.UserToken)">
+            <summary>
+            添加/修改用户登录令牌表
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">用户登录令牌表实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeleteUserToken(System.Guid)">
+            <summary>
+            删除用户登录令牌表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetUserTokenAll(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.Nullable{System.DateTime},System.Nullable{System.Guid},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部用户登录令牌表
+            </summary>
+            <param name="ID"></param>
+            <param name="UserID">用户Id</param>
+            <param name="ApplicationID">应用Id</param>
+            <param name="Token"></param>
+            <param name="UpdateTime">更新时间</param>
+            <param name="UsingApplicationID"></param>
+            <param name="OrderByUserToken">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetUserTokenAllSelector(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.Nullable{System.DateTime},System.Nullable{System.Guid},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部用户登录令牌表，自定义返回类型
+            </summary>
+            <param name="ID"></param>
+            <param name="UserID">用户Id</param>
+            <param name="ApplicationID">应用Id</param>
+            <param name="Token"></param>
+            <param name="UpdateTime">更新时间</param>
+            <param name="UsingApplicationID"></param>
+            <param name="OrderByUserToken">排序条件</param>
+            <param name="SelectorUserToken">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetUserToken(System.Guid)">
+            <summary>
+            获取用户登录令牌表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.EditUserToRole(System.Boolean,Enssi.Authenticate.Data.UserToRole)">
+            <summary>
+            添加/修改用户角色关系表
+            </summary>
+            <param name="IsAdd">是否添加</param>
+            <param name="Model">用户角色关系表实体</param>
+            <returns>添加或修改的实体类</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.DeleteUserToRole(System.Guid)">
+            <summary>
+            删除用户角色关系表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetUserToRoleAll(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部用户角色关系表
+            </summary>
+            <param name="ID"></param>
+            <param name="UserID">用户Id</param>
+            <param name="RoleID">角色Id</param>
+            <param name="OrderByUserToRole">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetUserToRoleAllSelector(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部用户角色关系表，自定义返回类型
+            </summary>
+            <param name="ID"></param>
+            <param name="UserID">用户Id</param>
+            <param name="RoleID">角色Id</param>
+            <param name="OrderByUserToRole">排序条件</param>
+            <param name="SelectorUserToRole">查询哪些字段</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthenticateController.GetUserToRole(System.Guid)">
+            <summary>
+            获取用户角色关系表
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthController.Login(System.String,System.String,System.String,System.String)">
+            <summary>
+            账号登录
+            </summary>
+            <param name="SystemNameSpace">系统命名空间</param>
+            <param name="UsingNameSpace">使用中系统命名空间</param>
+            <param name="Account">账号</param>
+            <param name="Password">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthController.GetFingerprint">
+            <summary>
+            获取全部指纹
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthController.LoginByFinger(System.String,System.String,System.Guid)">
+            <summary>
+            指纹登录
+            </summary>
+            <param name="SystemNameSpace">系统命名空间</param>
+            <param name="UsingNameSpace">使用中系统命名空间</param>
+            <param name="UID">用户编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthController.LoginScanningFace(System.String,System.String,System.Guid,System.String,System.String)">
+            <summary>
+            扫脸登录
+            </summary>
+            <param name="SystemNameSpace">系统命名空间</param>
+            <param name="UsingNameSpace">使用中系统命名空间</param>
+            <param name="OrgID">组织架构编号</param>
+            <param name="KeyCode">扫脸码</param>
+            <param name="Application">应用编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.AuthController.GetCurrentUserPermissionBtnAll(System.String)">
+            <summary>
+            客户端权限验证，获得当前用户权限按钮验证
+            </summary>
+            <param name="SystemNameSpace">系统命名空间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.EditOrganization(Enssi.Authenticate.Data.Organization)">
+            <summary>
+            添加/修改组织架构
+            </summary>
+            <param name="model">实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.DelOrganization(System.Guid)">
+            <summary>
+            删除组织架构
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetOrganization(System.Nullable{System.Guid})">
+            <summary>
+            获取组织架构
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetOrganizationAll(System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部组织架构
+            </summary>
+            <param name="PredicateOrganization">查询条件</param>
+            <param name="OrderByOrganization">排序条件</param>
+            <param name="Includes">引用外键</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetOrganizationAllSelector(System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部组织架构
+            </summary>
+            <param name="PredicateOrganization">查询条件</param>
+            <param name="OrderByOrganization">排序条件</param>
+            <param name="SelectorOrganization">查询哪些字段</param>
+            <param name="PageIndex">第几页</param> 
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetOrganizationList">
+            <summary>
+            获得全部组织架构
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetOrganizationListByPID(System.Nullable{System.Guid})">
+            <summary>
+            根据父级ID获得组织架构列表
+            </summary>
+            <param name="PID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetOrganizationGeneralByType(System.String)">
+            <summary>
+            获取通用组织下通用名称
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+            [ActionName("")]
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.EditOrganizationGeneral(Enssi.Authenticate.Data.OrganizationGeneral)">
+            <summary>
+            添加修改通用组织
+            </summary>
+            <param name="model">实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetOrganizationGeneral(System.Nullable{System.Guid})">
+            <summary>
+            获取通用组织
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.DelOrganizationGeneral(System.Guid)">
+            <summary>
+            删除通用组织
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetOrganizationGeneralAll(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部通用组织
+            </summary>
+            <param name="Type"></param>
+            <param name="Name"></param>
+            <param name="PageIndex"></param>
+            <param name="PageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.EditApplication(Enssi.Authenticate.Data.Application)">
+            <summary>
+            添加/修改应用
+            </summary>
+            <param name="model">实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.DelApplication(System.Guid)">
+            <summary>
+            删除应用
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetApplication(System.Nullable{System.Guid})">
+            <summary>
+            获取应用
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetApplicationAll(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部应用
+            </summary>
+            <param name="Name">名称</param>
+            <param name="Space">命名空间</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetApplicationAllOrderByRolePermissionBtn(System.Nullable{System.Guid})">
+            <summary>
+            获得全部应用
+            </summary>
+            <param name="RoleID">角色ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.EditPermissionGroup(Enssi.Authenticate.Data.PermissionGroup)">
+            <summary>
+            添加/修改窗体
+            </summary>
+            <param name="model">实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.DelPermissionGroup(System.Guid)">
+            <summary>
+            删除窗体
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetPermissionGroup(System.Nullable{System.Guid})">
+            <summary>
+            获取窗体
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetPermissionGroupByPID(System.Nullable{System.Guid})">
+            <summary>
+            获取窗体
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetPermissionGroupName(System.String)">
+            <summary>
+            根据名称获取窗体
+            </summary>
+            <param name="name">名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetPermissionGroupList(System.Nullable{System.Guid})">
+            <summary>
+            获得全部窗体
+            </summary>
+            <param name="ApplicationID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetPermissionGroupAll(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部窗体
+            </summary>
+            <param name="Name">名称</param>
+            <param name="AppName">应用名称</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.EditPermissionBtn(Enssi.Authenticate.Data.PermissionBtn)">
+            <summary>
+            添加/修改窗体对应的按钮
+            </summary>
+            <param name="model">实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.DelPermissionBtn(System.Guid)">
+            <summary>
+            删除窗体对应的按钮
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetPermissionBtn(System.Nullable{System.Guid})">
+            <summary>
+            获取窗体对应的按钮
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetPermissionBtnAll(System.String,System.String,System.String,System.Nullable{System.Guid},System.Nullable{System.Guid},System.Int32,System.Int32)">
+            <summary>
+            获得全部窗体对应的按钮
+            </summary>
+            <param name="ButtonName">按钮名</param>
+            <param name="FormName">窗体名</param>
+            <param name="DisplayName">显示名</param>
+            <param name="ApplicationID">应用ID</param>
+            <param name="PermissionGroupID">权限组ID</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.EditPermissionInterface(Enssi.Authenticate.Data.PermissionInterface)">
+            <summary>
+            添加/修改权限接口
+            </summary>
+            <param name="model">实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.DelPermissionInterface(System.Guid)">
+            <summary>
+            删除权限接口
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetPermissionInterface(System.Nullable{System.Guid})">
+            <summary>
+            获取权限接口
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetPermissionInterfaceAll(System.String,System.Nullable{System.Guid},System.Int32,System.Int32)">
+            <summary>
+            获得全部权限接口
+            </summary>
+            <param name="InterfaceName">接口名</param>
+            <param name="ApplicationID">应用ID</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetPermissionInterfaceViewAll(System.String,System.String,System.Nullable{System.Guid},System.Int32,System.Int32)">
+            <summary>
+            获得全部权限接口
+            </summary>
+            <param name="Name">名称</param>
+            <param name="MethodName">方法名</param>
+            <param name="ApplicationID">应用ID</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.EditUserToRole(System.Collections.Generic.List{Enssi.Authenticate.Data.UserToRole})">
+            <summary>
+            添加/修改用户角色关系
+            </summary>
+            <param name="lst">用户角色关系列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.DelUserToRole(System.Guid)">
+            <summary>
+            删除用户角色关系
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetUserToRole(System.Nullable{System.Guid})">
+            <summary>
+            获取用户角色关系
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetUserToRoleAll(System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部用户角色关系
+            </summary>
+            <param name="Name">名称</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.EditPermissionBtnRole(System.Guid,System.Collections.Generic.List{Enssi.Authenticate.Data.PermissionBtnRole})">
+            <summary>
+            添加/修改用户角色关系
+            </summary>
+            <param Name="model">实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.DelPermissionBtnRole(System.Collections.Generic.List{Enssi.Authenticate.Data.PermissionBtnRole})">
+            <summary>
+            删除用户角色关系
+            </summary>
+            <param name="list">列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetPermissionBtnRole(System.Nullable{System.Guid})">
+            <summary>
+            获取用户角色关系
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PermissionController.GetPermissionBtnRoleAll(System.Guid)">
+            <summary>
+            获得全部用户角色关系
+            </summary>
+            <param name="RoleID">RoleID</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PublicController.EditCommonWords(Enssi.Authenticate.Data.CommonWords)">
+            <summary>
+            添加/修改消息返回码
+            </summary>
+            <param name="model">实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PublicController.DelCommonWords(System.Guid)">
+            <summary>
+            删除消息返回码
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PublicController.GetCommonWords(System.Nullable{System.Guid})">
+            <summary>
+            获取消息返回码
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PublicController.GetCommonWordsAll(System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部消息返回码
+            </summary>
+            <param name="Name">名称</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PublicController.EditInterface(Enssi.Authenticate.Data.InterfaceMain)">
+            <summary>
+            添加/修改接口
+            </summary>
+            <param name="model">实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PublicController.DelInterface(System.Guid)">
+            <summary>
+            删除接口
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PublicController.GetInterface(System.Nullable{System.Guid})">
+            <summary>
+            获取接口
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PublicController.GetInterfaceDetail(System.Nullable{System.Guid})">
+            <summary>
+            获取接口
+            </summary>
+            <param name="id">编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PublicController.GetInterfaceAll(System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部接口
+            </summary>
+            <param name="InterfaceNo">名称</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PublicController.GetInterfaceHisAll(System.Guid,System.Int32,System.Int32)">
+            <summary>
+            获得全部接口历史
+            </summary>
+            <param name="ID">接口ID</param>
+            <param name="PageIndex">第几页</param>uiu
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.PublicController.GetInterfaceDetaiHisAll(System.Guid,System.Int32,System.Int32)">
+            <summary>
+            获得全部接口历史
+            </summary>
+            <param name="ID">接口ID</param>
+            <param name="PageIndex">第几页</param>uiu
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.UserController.GetUserInfo(System.Guid)">
+            <summary>
+            获取用户
+            </summary>
+            <param name="Id">用户编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.UserController.GetUserInfoAll(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取全部用户
+            </summary>
+            <param name="Account">账号</param>
+            <param name="Name">姓名</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.UserController.GetUserByOrgID(System.Guid)">
+            <summary>
+            根据组织架构编号获得用户
+            </summary>
+            <param name="OrgID">组织架构编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.UserController.GetUserByCID(System.String)">
+            <summary>
+            根据门诊编号获得用户
+            </summary>
+            <param name="CID">门诊编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.UserController.GetUserInfo(System.String)">
+            <summary>
+            获取用户
+            </summary>
+            <param name="Account">用户账号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.UserController.EditUserInfo(Enssi.Authenticate.Data.User)">
+            <summary>
+            添加/修改用户
+            </summary>
+            <param name="model">用户实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.UserController.DelUserInfo(System.Guid,System.Int32)">
+            <summary>
+            启用停用
+            </summary>
+            <param name="id">用户编号</param>
+            <param name="tag">状态（0：启用；1：停用）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.UserController.GetUserPermission(System.String,System.String)">
+            <summary>
+            根据用户编号+具体系统获取对应功能权限
+            </summary>
+            <param name="UserID">用户编号</param>
+            <param name="Application">应用名称</param>
+            <returns>用户</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.UserController.AddRole(Enssi.Authenticate.Data.Role)">
+            <summary>
+            添加角色
+            </summary>
+            <param name="model">角色实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.UserController.EditRole(Enssi.Authenticate.Data.Role)">
+            <summary>
+            添加/修改角色
+            </summary>
+            <param name="model">角色实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.UserController.DelRole(System.Guid)">
+            <summary>
+            删除角色
+            </summary>
+            <param name="id">角色编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.UserController.GetRole(System.Nullable{System.Guid})">
+            <summary>
+            获取角色
+            </summary>
+            <param name="id">角色编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.UserController.GetRoleAll(System.String,System.Int32,System.Int32)">
+            <summary>
+            获得全部角色
+            </summary>
+            <param name="Name">角色名称</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.UserController.GetRoleToUser(System.Guid,System.Int32,System.Int32)">
+            <summary>
+            查询此角色有多少用户
+            </summary>
+            <param name="id">角色ID</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Controllers.UserController.GetUserToRole(System.Guid,System.Int32,System.Int32)">
+            <summary>
+            根据用户查询用户有多少个角色
+            </summary>
+            <param name="id">用户ID</param>
+            <param name="PageIndex">第几页</param>
+            <param name="PageSize">页大小</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Enssi.Authenticate.Api.Areas.HelpPage.MultiXmlDocumentationProvider" -->
+        <member name="F:Enssi.Authenticate.Api.Areas.HelpPage.MultiXmlDocumentationProvider.Providers">
+            <summary>The internal documentation providers for specific files.</summary>  
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Enssi.Authenticate.Api.Areas.HelpPage.MultiXmlDocumentationProvider.#ctor(System.String[])" -->
+        <!-- Badly formed XML comment ignored for member "M:Enssi.Authenticate.Api.Areas.HelpPage.MultiXmlDocumentationProvider.GetDocumentation(System.Reflection.MemberInfo)" -->
+        <!-- Badly formed XML comment ignored for member "M:Enssi.Authenticate.Api.Areas.HelpPage.MultiXmlDocumentationProvider.GetDocumentation(System.Type)" -->
+        <!-- Badly formed XML comment ignored for member "M:Enssi.Authenticate.Api.Areas.HelpPage.MultiXmlDocumentationProvider.GetDocumentation(System.Web.Http.Controllers.HttpControllerDescriptor)" -->
+        <!-- Badly formed XML comment ignored for member "M:Enssi.Authenticate.Api.Areas.HelpPage.MultiXmlDocumentationProvider.GetDocumentation(System.Web.Http.Controllers.HttpActionDescriptor)" -->
+        <!-- Badly formed XML comment ignored for member "M:Enssi.Authenticate.Api.Areas.HelpPage.MultiXmlDocumentationProvider.GetDocumentation(System.Web.Http.Controllers.HttpParameterDescriptor)" -->
+        <!-- Badly formed XML comment ignored for member "M:Enssi.Authenticate.Api.Areas.HelpPage.MultiXmlDocumentationProvider.GetResponseDocumentation(System.Web.Http.Controllers.HttpActionDescriptor)" -->
+        <!-- Badly formed XML comment ignored for member "M:Enssi.Authenticate.Api.Areas.HelpPage.MultiXmlDocumentationProvider.GetFirstMatch(System.Func{Enssi.Authenticate.Api.Areas.HelpPage.XmlDocumentationProvider,System.String})" -->
+        <member name="T:Enssi.Authenticate.Api.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForMediaType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets the sample directly for all actions with the specified media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the model description generator.
+            </summary>
+            <param name="config">The configuration.</param>
+            <returns>The <see cref="T:Enssi.Authenticate.Api.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/></returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:Enssi.Authenticate.Api.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:Enssi.Authenticate.Api.Areas.HelpPage.ModelDescriptions.ModelDescription">
+            <summary>
+            Describes a type model.
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Api.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator">
+            <summary>
+            Generates model descriptions for given types.
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Api.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
+            <summary>
+            Use this attribute to change the name of the <see cref="T:Enssi.Authenticate.Api.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Api.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Enssi.Authenticate.Api.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:Enssi.Authenticate.Api.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.Models.HelpPageApiModel.UriParameters">
+            <summary>
+            Gets or sets the <see cref="T:Enssi.Authenticate.Api.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> collection that describes the URI parameters for the API.
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.Models.HelpPageApiModel.RequestDocumentation">
+            <summary>
+            Gets or sets the documentation for the request.
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.Models.HelpPageApiModel.RequestModelDescription">
+            <summary>
+            Gets or sets the <see cref="T:Enssi.Authenticate.Api.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the request body.
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.Models.HelpPageApiModel.RequestBodyParameters">
+            <summary>
+            Gets the request body parameter descriptions.
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.Models.HelpPageApiModel.ResourceDescription">
+            <summary>
+            Gets or sets the <see cref="T:Enssi.Authenticate.Api.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the resource.
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.Models.HelpPageApiModel.ResourceProperties">
+            <summary>
+            Gets the resource property descriptions.
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:Enssi.Authenticate.Api.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,Enssi.Authenticate.Api.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,Enssi.Authenticate.Api.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create
+            one using <see cref="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator,System.Type)"/> (which wraps an <see cref="T:Enssi.Authenticate.Api.Areas.HelpPage.ObjectGenerator"/>) and other
+            factories in <see cref="P:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator.ResolveHttpRequestMessageType(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The type.</returns>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},Enssi.Authenticate.Api.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Creates a new <see cref="T:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey"/> based on media type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey.#ctor(Enssi.Authenticate.Api.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,Enssi.Authenticate.Api.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:Enssi.Authenticate.Api.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Api.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Enssi.Authenticate.Api.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:Enssi.Authenticate.Api.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Api.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:Enssi.Authenticate.Api.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Api.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Api.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Enssi.Authenticate.Api.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="M:Enssi.Authenticate.Api.ApiMessageHandler.GetMd5HashStr(System.String)">
+            <summary>
+            MD5(32位加密)
+            </summary>
+            <param name="str">需要加密的字符串</param>
+            <returns>MD5加密后的字符串</returns>
+        </member>
+        <member name="F:Enssi.Authenticate.Api.Api.SystemNameSpace">
+            <summary>
+            系统命名空间
+            </summary>
+        </member>
+        <member name="F:Enssi.Authenticate.Api.Api.Token">
+            <summary>
+            系统令牌
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Api.User">
+            <summary>
+            当前登录用户
+            </summary>
+        </member>
+        <member name="P:Enssi.Authenticate.Api.Api.DbEnssiAuthenticate">
+            <summary>
+            EnssiAuthenticate 数据库访问对象
+            </summary>
+        </member>
+        <member name="T:Enssi.Authenticate.Api.CompressionAttribute">
+            <summary>
+            强制GZip压缩，application/json
+            Content-encoding:gzip
+            GZIP是使用DEFLATE进行压缩数据的另一个压缩库
+            强制Defalte压缩
+            Content-encoding:deflate
+            DEFLATE是一个无专利的压缩算法，它可以实现无损数据压缩，有众多开源的实现算法。
+            </summary>
+        </member>
+        <member name="T:Enssi.FormMultipartEncodedMediaTypeFormatter">
+            <summary>
+            Represents the <see cref="T:System.Net.Http.Formatting.MediaTypeFormatter"/> class to handle multipart/form-data. 
+            </summary>
+        </member>
+        <member name="M:Enssi.FormMultipartEncodedMediaTypeFormatter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Enssi.FormMultipartEncodedMediaTypeFormatter"/> class.
+            </summary>
+        </member>
+        <member name="T:Enssi.HttpPostedFileMultipart">
+            <summary>
+            Represents a file that has uploaded by a client via multipart/form-data. 
+            </summary>
+        </member>
+        <member name="M:Enssi.HttpPostedFileMultipart.#ctor(System.String,System.String,System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Enssi.HttpPostedFileMultipart"/> class. 
+            </summary>
+            <param name="fileName">The fully qualified name of the file on the client</param>
+            <param name="contentType">The MIME content type of an uploaded file</param>
+            <param name="fileContents">The contents of the uploaded file.</param>
+        </member>
+        <member name="M:Enssi.Utility.AesEncrypt(System.String,System.String)">
+            <summary>
+            AES加密
+            </summary>
+            <param name="encryptStr">明文</param>
+            <param name="key">密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Utility.AesDecrypt(System.String,System.String)">
+            <summary>
+            AES解密
+            </summary>
+            <param name="decryptStr">密文</param>
+            <param name="key">密钥</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Utility.GZipCompressString(System.String)">
+            <summary>
+            将传入字符串以GZip算法压缩后，返回Base64编码字符
+            </summary>
+            <param name="rawString">需要压缩的字符串</param>
+            <returns>压缩后的Base64编码的字符串</returns>
+        </member>
+        <member name="M:Enssi.Utility.Compress(System.Byte[])">
+            <summary>
+            GZip压缩
+            </summary>
+            <param name="rawData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Utility.GZipDecompressString(System.String)">
+            <summary>
+            将传入的二进制字符串资料以GZip算法解压缩
+            </summary>
+            <param name="zippedString">经GZip压缩后的二进制字符串</param>
+            <returns>原始未压缩字符串</returns>
+        </member>
+        <member name="M:Enssi.Utility.Decompress(System.Byte[])">
+            <summary>
+            ZIP解压
+            </summary>
+            <param name="zippedData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Utility.GetRequestFile(System.String)">
+            <summary>
+            获得上传的文件
+            </summary>
+            <param name="name">Form名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Enssi.Utility.SaveRequestFile(System.String,System.String,System.String)">
+            <summary>
+            保存上传的文件，文件夹不存在时会自动创建
+            </summary>
+            <param name="name">Form名称</param>
+            <param name="dirPath">文件夹路径</param>
+            <param name="fileName">文件名</param>
+        </member>
+        <member name="T:Enssi.ApiResult">
+            <summary>
+            Api返回类型
+            </summary>
+        </member>
+        <member name="P:Enssi.ApiResult.ErrorCode">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="P:Enssi.ApiResult.Message">
+            <summary>
+            信息
+            </summary>
+        </member>
+        <member name="T:Enssi.ApiResult`1">
+            <summary>
+            Api返回类型带数据
+            </summary>
+        </member>
+        <member name="P:Enssi.ApiResult`1.ErrorCode">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="P:Enssi.ApiResult`1.Message">
+            <summary>
+            信息
+            </summary>
+        </member>
+        <member name="P:Enssi.ApiResult`1.Data">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="M:Enssi.PagedListExpand.ToPagedList``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+            <summary>
+            查询分页集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="queryable">待分页语句</param>
+            <param name="pageIndex">当前页（0为查询全部，-1为查询前多少条）</param>
+            <param name="pageSize">页大小</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

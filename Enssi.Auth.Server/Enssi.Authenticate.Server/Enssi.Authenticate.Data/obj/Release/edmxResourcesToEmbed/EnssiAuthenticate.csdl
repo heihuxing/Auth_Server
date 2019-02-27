@@ -1,0 +1,835 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EnssiAuthenticateModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EnssiAuthenticateEntities" annotation:LazyLoadingEnabled="false">
+    <FunctionImport Name="sp_OrganizationQuery" ReturnType="Collection(EnssiAuthenticateModel.sp_OrganizationQuery_Result)">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="type" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_PermissionGroupQuery" ReturnType="Collection(EnssiAuthenticateModel.sp_PermissionGroupQuery_Result)">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="appname" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Application" EntityType="EnssiAuthenticateModel.Application" />
+    <EntitySet Name="ApproveLog" EntityType="EnssiAuthenticateModel.ApproveLog" />
+    <EntitySet Name="ApproveTemplate" EntityType="EnssiAuthenticateModel.ApproveTemplate" />
+    <EntitySet Name="ApproveTemplateDetail" EntityType="EnssiAuthenticateModel.ApproveTemplateDetail" />
+    <EntitySet Name="CommonWords" EntityType="EnssiAuthenticateModel.CommonWords" />
+    <EntitySet Name="InterfaceDetail" EntityType="EnssiAuthenticateModel.InterfaceDetail" />
+    <EntitySet Name="InterfaceDetailHist" EntityType="EnssiAuthenticateModel.InterfaceDetailHist" />
+    <EntitySet Name="InterfaceMain" EntityType="EnssiAuthenticateModel.InterfaceMain" />
+    <EntitySet Name="InterfaceMainHist" EntityType="EnssiAuthenticateModel.InterfaceMainHist" />
+    <EntitySet Name="Organization" EntityType="EnssiAuthenticateModel.Organization" />
+    <EntitySet Name="OrganizationGeneral" EntityType="EnssiAuthenticateModel.OrganizationGeneral" />
+    <EntitySet Name="PermissionBtn" EntityType="EnssiAuthenticateModel.PermissionBtn" />
+    <EntitySet Name="PermissionBtnInterface" EntityType="EnssiAuthenticateModel.PermissionBtnInterface" />
+    <EntitySet Name="PermissionBtnRole" EntityType="EnssiAuthenticateModel.PermissionBtnRole" />
+    <EntitySet Name="PermissionGroup" EntityType="EnssiAuthenticateModel.PermissionGroup" />
+    <EntitySet Name="PermissionInterface" EntityType="EnssiAuthenticateModel.PermissionInterface" />
+    <EntitySet Name="PermissionInterfaceRole" EntityType="EnssiAuthenticateModel.PermissionInterfaceRole" />
+    <EntitySet Name="Role" EntityType="EnssiAuthenticateModel.Role" />
+    <EntitySet Name="UserToken" EntityType="EnssiAuthenticateModel.UserToken" />
+    <EntitySet Name="UserToRole" EntityType="EnssiAuthenticateModel.UserToRole" />
+    <EntitySet Name="sysdiagrams" EntityType="EnssiAuthenticateModel.sysdiagrams" />
+    <EntitySet Name="V_PermissionBtnQuery" EntityType="EnssiAuthenticateModel.V_PermissionBtnQuery" />
+    <EntitySet Name="V_PermissionBtnRoleQuery" EntityType="EnssiAuthenticateModel.V_PermissionBtnRoleQuery" />
+    <EntitySet Name="V_PermissionInterfaceQuery" EntityType="EnssiAuthenticateModel.V_PermissionInterfaceQuery" />
+    <EntitySet Name="V_UserPermissionQuery" EntityType="EnssiAuthenticateModel.V_UserPermissionQuery" />
+    <EntitySet Name="V_UserToRoleQuery" EntityType="EnssiAuthenticateModel.V_UserToRoleQuery" />
+    <AssociationSet Name="FK_PremissionBtn_Application" Association="EnssiAuthenticateModel.FK_PremissionBtn_Application">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="PermissionBtn" EntitySet="PermissionBtn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionGroup_Application" Association="EnssiAuthenticateModel.FK_PremissionGroup_Application">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="PermissionGroup" EntitySet="PermissionGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionInterface_Application" Association="EnssiAuthenticateModel.FK_PremissionInterface_Application">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="PermissionInterface" EntitySet="PermissionInterface" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserToken_Application" Association="EnssiAuthenticateModel.FK_UserToken_Application">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="UserToken" EntitySet="UserToken" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserToken_ApplicationUsing" Association="EnssiAuthenticateModel.FK_UserToken_ApplicationUsing">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="UserToken" EntitySet="UserToken" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApproveLog_ApproveTemplate" Association="EnssiAuthenticateModel.FK_ApproveLog_ApproveTemplate">
+      <End Role="ApproveTemplate" EntitySet="ApproveTemplate" />
+      <End Role="ApproveLog" EntitySet="ApproveLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApproveLog_ApproveTemplateDetail" Association="EnssiAuthenticateModel.FK_ApproveLog_ApproveTemplateDetail">
+      <End Role="ApproveTemplateDetail" EntitySet="ApproveTemplateDetail" />
+      <End Role="ApproveLog" EntitySet="ApproveLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApproveTempletDetail_ApproveTemplet" Association="EnssiAuthenticateModel.FK_ApproveTempletDetail_ApproveTemplet">
+      <End Role="ApproveTemplate" EntitySet="ApproveTemplate" />
+      <End Role="ApproveTemplateDetail" EntitySet="ApproveTemplateDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApproveTemplateDetail_Role" Association="EnssiAuthenticateModel.FK_ApproveTemplateDetail_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="ApproveTemplateDetail" EntitySet="ApproveTemplateDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InterfaceDetail_InterfaceMain" Association="EnssiAuthenticateModel.FK_InterfaceDetail_InterfaceMain">
+      <End Role="InterfaceMain" EntitySet="InterfaceMain" />
+      <End Role="InterfaceDetail" EntitySet="InterfaceDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Organization_Organization" Association="EnssiAuthenticateModel.FK_Organization_Organization">
+      <End Role="Organization" EntitySet="Organization" />
+      <End Role="Organization1" EntitySet="Organization" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Organization_OrganizationGeneral" Association="EnssiAuthenticateModel.FK_Organization_OrganizationGeneral">
+      <End Role="OrganizationGeneral" EntitySet="OrganizationGeneral" />
+      <End Role="Organization" EntitySet="Organization" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Role_Organization" Association="EnssiAuthenticateModel.FK_Role_Organization">
+      <End Role="Organization" EntitySet="Organization" />
+      <End Role="Role" EntitySet="Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionBtn_PremissionGroup" Association="EnssiAuthenticateModel.FK_PremissionBtn_PremissionGroup">
+      <End Role="PermissionGroup" EntitySet="PermissionGroup" />
+      <End Role="PermissionBtn" EntitySet="PermissionBtn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionBtnInterface_PremissionBtn" Association="EnssiAuthenticateModel.FK_PremissionBtnInterface_PremissionBtn">
+      <End Role="PermissionBtn" EntitySet="PermissionBtn" />
+      <End Role="PermissionBtnInterface" EntitySet="PermissionBtnInterface" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionBtnRole_PremissionBtn" Association="EnssiAuthenticateModel.FK_PremissionBtnRole_PremissionBtn">
+      <End Role="PermissionBtn" EntitySet="PermissionBtn" />
+      <End Role="PermissionBtnRole" EntitySet="PermissionBtnRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionBtnInterface_PremissionInterface" Association="EnssiAuthenticateModel.FK_PremissionBtnInterface_PremissionInterface">
+      <End Role="PermissionInterface" EntitySet="PermissionInterface" />
+      <End Role="PermissionBtnInterface" EntitySet="PermissionBtnInterface" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionBtnRole_Role" Association="EnssiAuthenticateModel.FK_PremissionBtnRole_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="PermissionBtnRole" EntitySet="PermissionBtnRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionInterfaceRole_PremissionInterface" Association="EnssiAuthenticateModel.FK_PremissionInterfaceRole_PremissionInterface">
+      <End Role="PermissionInterface" EntitySet="PermissionInterface" />
+      <End Role="PermissionInterfaceRole" EntitySet="PermissionInterfaceRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionInterfaceRole_Role" Association="EnssiAuthenticateModel.FK_PremissionInterfaceRole_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="PermissionInterfaceRole" EntitySet="PermissionInterfaceRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserToRole_Role" Association="EnssiAuthenticateModel.FK_UserToRole_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="UserToRole" EntitySet="UserToRole" />
+    </AssociationSet>
+    <EntitySet Name="User" EntityType="EnssiAuthenticateModel.User" />
+    <AssociationSet Name="FK_UserToken_User" Association="EnssiAuthenticateModel.FK_UserToken_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserToken" EntitySet="UserToken" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserToRole_User" Association="EnssiAuthenticateModel.FK_UserToRole_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserToRole" EntitySet="UserToRole" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_OrganizationQuery_Result">
+    <Property Type="Guid" Name="ID" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Type" Nullable="true" MaxLength="50" />
+    <Property Type="Guid" Name="ParentID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_PermissionGroupQuery_Result">
+    <Property Type="Guid" Name="ID" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="Guid" Name="AppID" Nullable="true" />
+    <Property Type="Guid" Name="ParentID" Nullable="true" />
+    <Property Type="String" Name="AppName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameSpace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PermissionBtn" Relationship="EnssiAuthenticateModel.FK_PremissionBtn_Application" FromRole="Application" ToRole="PermissionBtn" />
+    <NavigationProperty Name="PermissionGroup" Relationship="EnssiAuthenticateModel.FK_PremissionGroup_Application" FromRole="Application" ToRole="PermissionGroup" />
+    <NavigationProperty Name="PermissionInterface" Relationship="EnssiAuthenticateModel.FK_PremissionInterface_Application" FromRole="Application" ToRole="PermissionInterface" />
+    <NavigationProperty Name="UserToken" Relationship="EnssiAuthenticateModel.FK_UserToken_Application" FromRole="Application" ToRole="UserToken" />
+    <NavigationProperty Name="UserToken1" Relationship="EnssiAuthenticateModel.FK_UserToken_ApplicationUsing" FromRole="Application" ToRole="UserToken" />
+  </EntityType>
+  <EntityType Name="ApproveLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Keys" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TemplateID" Type="Guid" Nullable="false" />
+    <Property Name="TemplateDetailID" Type="Guid" Nullable="false" />
+    <Property Name="Rank" Type="Int32" Nullable="false" />
+    <Property Name="RankName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="ApproveUserID" Type="Guid" Nullable="false" />
+    <Property Name="ApproveUserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Result" Type="Int32" Nullable="false" />
+    <Property Name="ResultState" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Reason" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ApproveTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="HistoryData" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NextRank" Type="Int32" />
+    <NavigationProperty Name="ApproveTemplate" Relationship="EnssiAuthenticateModel.FK_ApproveLog_ApproveTemplate" FromRole="ApproveLog" ToRole="ApproveTemplate" />
+    <NavigationProperty Name="ApproveTemplateDetail" Relationship="EnssiAuthenticateModel.FK_ApproveLog_ApproveTemplateDetail" FromRole="ApproveLog" ToRole="ApproveTemplateDetail" />
+  </EntityType>
+  <EntityType Name="ApproveTemplate">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="SystemName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModuleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="PassState" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ApproveLog" Relationship="EnssiAuthenticateModel.FK_ApproveLog_ApproveTemplate" FromRole="ApproveTemplate" ToRole="ApproveLog" />
+    <NavigationProperty Name="ApproveTemplateDetail" Relationship="EnssiAuthenticateModel.FK_ApproveTempletDetail_ApproveTemplet" FromRole="ApproveTemplate" ToRole="ApproveTemplateDetail" />
+  </EntityType>
+  <EntityType Name="ApproveTemplateDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="TemplateID" Type="Guid" Nullable="false" />
+    <Property Name="Rank" Type="Int32" Nullable="false" />
+    <Property Name="RankName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PassRank" Type="Int32" />
+    <Property Name="PassState" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RejectRank" Type="Int32" Nullable="false" />
+    <Property Name="RejectState" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RoleID" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="ApproveLog" Relationship="EnssiAuthenticateModel.FK_ApproveLog_ApproveTemplateDetail" FromRole="ApproveTemplateDetail" ToRole="ApproveLog" />
+    <NavigationProperty Name="ApproveTemplate" Relationship="EnssiAuthenticateModel.FK_ApproveTempletDetail_ApproveTemplet" FromRole="ApproveTemplateDetail" ToRole="ApproveTemplate" />
+    <NavigationProperty Name="Role" Relationship="EnssiAuthenticateModel.FK_ApproveTemplateDetail_Role" FromRole="ApproveTemplateDetail" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="CommonWords">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="CommonID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CommonNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CommonName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="InterfaceDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="InterfaceID" Type="Guid" />
+    <Property Name="ParameterNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParameterName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParameterType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ParameterLen" Type="Int32" />
+    <Property Name="IsNull" Type="Int32" />
+    <NavigationProperty Name="InterfaceMain" Relationship="EnssiAuthenticateModel.FK_InterfaceDetail_InterfaceMain" FromRole="InterfaceDetail" ToRole="InterfaceMain" />
+  </EntityType>
+  <EntityType Name="InterfaceDetailHist">
+    <Key>
+      <PropertyRef Name="PK" />
+    </Key>
+    <Property Name="PK" Type="Guid" Nullable="false" />
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="InterfaceID" Type="Guid" Nullable="false" />
+    <Property Name="ParameterNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParameterName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParameterType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ParameterLen" Type="Int32" />
+    <Property Name="IsNull" Type="Int32" />
+    <Property Name="Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="InterfaceMain">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="InterfaceNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BelongSystem" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BelongModule" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Operation" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="InExample" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="OutExample" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Parameter" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <Property Name="CreateUserID" Type="Guid" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="InterfaceDetail" Relationship="EnssiAuthenticateModel.FK_InterfaceDetail_InterfaceMain" FromRole="InterfaceMain" ToRole="InterfaceDetail" />
+  </EntityType>
+  <EntityType Name="InterfaceMainHist">
+    <Key>
+      <PropertyRef Name="PK" />
+    </Key>
+    <Property Name="PK" Type="Guid" Nullable="false" />
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="InterfaceNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BelongSystem" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BelongModule" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Operation" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="InExample" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="OutExample" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Parameter" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Int32" />
+    <Property Name="CreateUserID" Type="Guid" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="Flag" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Organization">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ParentID" Type="Guid" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GeneralID" Type="Guid" />
+    <NavigationProperty Name="Organization1" Relationship="EnssiAuthenticateModel.FK_Organization_Organization" FromRole="Organization" ToRole="Organization1" />
+    <NavigationProperty Name="Organization2" Relationship="EnssiAuthenticateModel.FK_Organization_Organization" FromRole="Organization1" ToRole="Organization" />
+    <NavigationProperty Name="OrganizationGeneral" Relationship="EnssiAuthenticateModel.FK_Organization_OrganizationGeneral" FromRole="Organization" ToRole="OrganizationGeneral" />
+    <NavigationProperty Name="Role" Relationship="EnssiAuthenticateModel.FK_Role_Organization" FromRole="Organization" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="OrganizationGeneral">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Organization" Relationship="EnssiAuthenticateModel.FK_Organization_OrganizationGeneral" FromRole="OrganizationGeneral" ToRole="Organization" />
+  </EntityType>
+  <EntityType Name="PermissionBtn">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="ButtonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FormName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationID" Type="Guid" Nullable="false" />
+    <Property Name="PermissionGroupID" Type="Guid" Nullable="false" />
+    <Property Name="NoPermissionType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Application" Relationship="EnssiAuthenticateModel.FK_PremissionBtn_Application" FromRole="PermissionBtn" ToRole="Application" />
+    <NavigationProperty Name="PermissionGroup" Relationship="EnssiAuthenticateModel.FK_PremissionBtn_PremissionGroup" FromRole="PermissionBtn" ToRole="PermissionGroup" />
+    <NavigationProperty Name="PermissionBtnInterface" Relationship="EnssiAuthenticateModel.FK_PremissionBtnInterface_PremissionBtn" FromRole="PermissionBtn" ToRole="PermissionBtnInterface" />
+    <NavigationProperty Name="PermissionBtnRole" Relationship="EnssiAuthenticateModel.FK_PremissionBtnRole_PremissionBtn" FromRole="PermissionBtn" ToRole="PermissionBtnRole" />
+  </EntityType>
+  <EntityType Name="PermissionBtnInterface">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="PermissionButtonID" Type="Guid" Nullable="false" />
+    <Property Name="PermissionInterfaceID" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="PermissionBtn" Relationship="EnssiAuthenticateModel.FK_PremissionBtnInterface_PremissionBtn" FromRole="PermissionBtnInterface" ToRole="PermissionBtn" />
+    <NavigationProperty Name="PermissionInterface" Relationship="EnssiAuthenticateModel.FK_PremissionBtnInterface_PremissionInterface" FromRole="PermissionBtnInterface" ToRole="PermissionInterface" />
+  </EntityType>
+  <EntityType Name="PermissionBtnRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="PermissionButtonID" Type="Guid" Nullable="false" />
+    <Property Name="RoleID" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="PermissionBtn" Relationship="EnssiAuthenticateModel.FK_PremissionBtnRole_PremissionBtn" FromRole="PermissionBtnRole" ToRole="PermissionBtn" />
+    <NavigationProperty Name="Role" Relationship="EnssiAuthenticateModel.FK_PremissionBtnRole_Role" FromRole="PermissionBtnRole" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="PermissionGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationID" Type="Guid" Nullable="false" />
+    <Property Name="ParentID" Type="Guid" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+    <Property Name="IdPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Application" Relationship="EnssiAuthenticateModel.FK_PremissionGroup_Application" FromRole="PermissionGroup" ToRole="Application" />
+    <NavigationProperty Name="PermissionBtn" Relationship="EnssiAuthenticateModel.FK_PremissionBtn_PremissionGroup" FromRole="PermissionGroup" ToRole="PermissionBtn" />
+  </EntityType>
+  <EntityType Name="PermissionInterface">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationID" Type="Guid" Nullable="false" />
+    <Property Name="ControllerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MethodName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ActionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="QueryString" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Application" Relationship="EnssiAuthenticateModel.FK_PremissionInterface_Application" FromRole="PermissionInterface" ToRole="Application" />
+    <NavigationProperty Name="PermissionBtnInterface" Relationship="EnssiAuthenticateModel.FK_PremissionBtnInterface_PremissionInterface" FromRole="PermissionInterface" ToRole="PermissionBtnInterface" />
+    <NavigationProperty Name="PermissionInterfaceRole" Relationship="EnssiAuthenticateModel.FK_PremissionInterfaceRole_PremissionInterface" FromRole="PermissionInterface" ToRole="PermissionInterfaceRole" />
+  </EntityType>
+  <EntityType Name="PermissionInterfaceRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="PermissionInterfaceID" Type="Guid" Nullable="false" />
+    <Property Name="RoleID" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="PermissionInterface" Relationship="EnssiAuthenticateModel.FK_PremissionInterfaceRole_PremissionInterface" FromRole="PermissionInterfaceRole" ToRole="PermissionInterface" />
+    <NavigationProperty Name="Role" Relationship="EnssiAuthenticateModel.FK_PremissionInterfaceRole_Role" FromRole="PermissionInterfaceRole" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ApproveTemplateDetail" Relationship="EnssiAuthenticateModel.FK_ApproveTemplateDetail_Role" FromRole="Role" ToRole="ApproveTemplateDetail" />
+    <NavigationProperty Name="Organization" Relationship="EnssiAuthenticateModel.FK_Role_Organization" FromRole="Role" ToRole="Organization" />
+    <NavigationProperty Name="PermissionBtnRole" Relationship="EnssiAuthenticateModel.FK_PremissionBtnRole_Role" FromRole="Role" ToRole="PermissionBtnRole" />
+    <NavigationProperty Name="PermissionInterfaceRole" Relationship="EnssiAuthenticateModel.FK_PremissionInterfaceRole_Role" FromRole="Role" ToRole="PermissionInterfaceRole" />
+    <NavigationProperty Name="UserToRole" Relationship="EnssiAuthenticateModel.FK_UserToRole_Role" FromRole="Role" ToRole="UserToRole" />
+  </EntityType>
+  <EntityType Name="UserToken">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserID" Type="Guid" Nullable="false" />
+    <Property Name="ApplicationID" Type="Guid" Nullable="false" />
+    <Property Name="Token" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UsingApplicationID" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Application" Relationship="EnssiAuthenticateModel.FK_UserToken_Application" FromRole="UserToken" ToRole="Application" />
+    <NavigationProperty Name="Application1" Relationship="EnssiAuthenticateModel.FK_UserToken_ApplicationUsing" FromRole="UserToken" ToRole="Application" />
+    <NavigationProperty Name="User" Relationship="EnssiAuthenticateModel.FK_UserToken_User" FromRole="UserToken" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserToRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserID" Type="Guid" Nullable="false" />
+    <Property Name="RoleID" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="EnssiAuthenticateModel.FK_UserToRole_Role" FromRole="UserToRole" ToRole="Role" />
+    <NavigationProperty Name="User" Relationship="EnssiAuthenticateModel.FK_UserToRole_User" FromRole="UserToRole" ToRole="User" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="name" />
+      <PropertyRef Name="principal_id" />
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="V_PermissionBtnQuery">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ApplicationID" />
+      <PropertyRef Name="PermissionGroupID" />
+      <PropertyRef Name="Sort" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="ButtonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FormName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationID" Type="Guid" Nullable="false" />
+    <Property Name="PermissionGroupID" Type="Guid" Nullable="false" />
+    <Property Name="ApplicationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PermissionGroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PermissionGroupPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PermissionGroupIdPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sort" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="V_PermissionBtnRoleQuery">
+    <Key>
+      <PropertyRef Name="PermissionButtonID" />
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="PermissionButtonID" Type="Guid" Nullable="false" />
+    <Property Name="RoleID" Type="Guid" Nullable="false" />
+    <Property Name="UserID" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="V_PermissionInterfaceQuery">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ApplicationID" />
+      <PropertyRef Name="ControllerName" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationID" Type="Guid" Nullable="false" />
+    <Property Name="ControllerName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MethodName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ActionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="QueryString" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="AName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="V_UserPermissionQuery">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="PermissionButtonID" />
+      <PropertyRef Name="ApplicationID" />
+      <PropertyRef Name="PermissionGroupID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="Guid" Nullable="false" />
+    <Property Name="RoleID" Type="Guid" Nullable="false" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PermissionButtonID" Type="Guid" Nullable="false" />
+    <Property Name="ButtonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FormName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationID" Type="Guid" Nullable="false" />
+    <Property Name="PermissionGroupID" Type="Guid" Nullable="false" />
+    <Property Name="AppName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameSpace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AppDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PermissionGroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ParentID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="V_UserToRoleQuery">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="CreateTime" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserID" Type="Guid" Nullable="false" />
+    <Property Name="RoleID" Type="Guid" Nullable="false" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_PremissionBtn_Application">
+    <End Type="EnssiAuthenticateModel.Application" Role="Application" Multiplicity="1" />
+    <End Type="EnssiAuthenticateModel.PermissionBtn" Role="PermissionBtn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionBtn">
+        <PropertyRef Name="ApplicationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionGroup_Application">
+    <End Type="EnssiAuthenticateModel.Application" Role="Application" Multiplicity="1" />
+    <End Type="EnssiAuthenticateModel.PermissionGroup" Role="PermissionGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionGroup">
+        <PropertyRef Name="ApplicationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionInterface_Application">
+    <End Type="EnssiAuthenticateModel.Application" Role="Application" Multiplicity="1" />
+    <End Type="EnssiAuthenticateModel.PermissionInterface" Role="PermissionInterface" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionInterface">
+        <PropertyRef Name="ApplicationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserToken_Application">
+    <End Type="EnssiAuthenticateModel.Application" Role="Application" Multiplicity="1" />
+    <End Type="EnssiAuthenticateModel.UserToken" Role="UserToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserToken">
+        <PropertyRef Name="ApplicationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserToken_ApplicationUsing">
+    <End Type="EnssiAuthenticateModel.Application" Role="Application" Multiplicity="1" />
+    <End Type="EnssiAuthenticateModel.UserToken" Role="UserToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserToken">
+        <PropertyRef Name="UsingApplicationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApproveLog_ApproveTemplate">
+    <End Type="EnssiAuthenticateModel.ApproveTemplate" Role="ApproveTemplate" Multiplicity="1" />
+    <End Type="EnssiAuthenticateModel.ApproveLog" Role="ApproveLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApproveTemplate">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ApproveLog">
+        <PropertyRef Name="TemplateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApproveLog_ApproveTemplateDetail">
+    <End Type="EnssiAuthenticateModel.ApproveTemplateDetail" Role="ApproveTemplateDetail" Multiplicity="1" />
+    <End Type="EnssiAuthenticateModel.ApproveLog" Role="ApproveLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApproveTemplateDetail">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ApproveLog">
+        <PropertyRef Name="TemplateDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApproveTempletDetail_ApproveTemplet">
+    <End Type="EnssiAuthenticateModel.ApproveTemplate" Role="ApproveTemplate" Multiplicity="1" />
+    <End Type="EnssiAuthenticateModel.ApproveTemplateDetail" Role="ApproveTemplateDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApproveTemplate">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ApproveTemplateDetail">
+        <PropertyRef Name="TemplateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApproveTemplateDetail_Role">
+    <End Type="EnssiAuthenticateModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="EnssiAuthenticateModel.ApproveTemplateDetail" Role="ApproveTemplateDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ApproveTemplateDetail">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InterfaceDetail_InterfaceMain">
+    <End Type="EnssiAuthenticateModel.InterfaceMain" Role="InterfaceMain" Multiplicity="0..1" />
+    <End Type="EnssiAuthenticateModel.InterfaceDetail" Role="InterfaceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InterfaceMain">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="InterfaceDetail">
+        <PropertyRef Name="InterfaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Organization_Organization">
+    <End Type="EnssiAuthenticateModel.Organization" Role="Organization" Multiplicity="0..1" />
+    <End Type="EnssiAuthenticateModel.Organization" Role="Organization1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Organization1">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Organization_OrganizationGeneral">
+    <End Type="EnssiAuthenticateModel.OrganizationGeneral" Role="OrganizationGeneral" Multiplicity="0..1" />
+    <End Type="EnssiAuthenticateModel.Organization" Role="Organization" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrganizationGeneral">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Organization">
+        <PropertyRef Name="GeneralID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Role_Organization">
+    <End Type="EnssiAuthenticateModel.Organization" Role="Organization" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="EnssiAuthenticateModel.Role" Role="Role" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Role">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionBtn_PremissionGroup">
+    <End Type="EnssiAuthenticateModel.PermissionGroup" Role="PermissionGroup" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="EnssiAuthenticateModel.PermissionBtn" Role="PermissionBtn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PermissionGroup">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionBtn">
+        <PropertyRef Name="PermissionGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionBtnInterface_PremissionBtn">
+    <End Type="EnssiAuthenticateModel.PermissionBtn" Role="PermissionBtn" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="EnssiAuthenticateModel.PermissionBtnInterface" Role="PermissionBtnInterface" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PermissionBtn">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionBtnInterface">
+        <PropertyRef Name="PermissionButtonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionBtnRole_PremissionBtn">
+    <End Type="EnssiAuthenticateModel.PermissionBtn" Role="PermissionBtn" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="EnssiAuthenticateModel.PermissionBtnRole" Role="PermissionBtnRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PermissionBtn">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionBtnRole">
+        <PropertyRef Name="PermissionButtonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionBtnInterface_PremissionInterface">
+    <End Type="EnssiAuthenticateModel.PermissionInterface" Role="PermissionInterface" Multiplicity="1" />
+    <End Type="EnssiAuthenticateModel.PermissionBtnInterface" Role="PermissionBtnInterface" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PermissionInterface">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionBtnInterface">
+        <PropertyRef Name="PermissionInterfaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionBtnRole_Role">
+    <End Type="EnssiAuthenticateModel.Role" Role="Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="EnssiAuthenticateModel.PermissionBtnRole" Role="PermissionBtnRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionBtnRole">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionInterfaceRole_PremissionInterface">
+    <End Type="EnssiAuthenticateModel.PermissionInterface" Role="PermissionInterface" Multiplicity="1" />
+    <End Type="EnssiAuthenticateModel.PermissionInterfaceRole" Role="PermissionInterfaceRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PermissionInterface">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionInterfaceRole">
+        <PropertyRef Name="PermissionInterfaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionInterfaceRole_Role">
+    <End Type="EnssiAuthenticateModel.Role" Role="Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="EnssiAuthenticateModel.PermissionInterfaceRole" Role="PermissionInterfaceRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionInterfaceRole">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserToRole_Role">
+    <End Type="EnssiAuthenticateModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="EnssiAuthenticateModel.UserToRole" Role="UserToRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserToRole">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Account" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Signature" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Fingerprint" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="FingerprintSpare" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="IsDeleted" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="UserToken" Relationship="EnssiAuthenticateModel.FK_UserToken_User" FromRole="User" ToRole="UserToken" />
+    <NavigationProperty Name="UserToRole" Relationship="EnssiAuthenticateModel.FK_UserToRole_User" FromRole="User" ToRole="UserToRole" />
+  </EntityType>
+  <Association Name="FK_UserToken_User">
+    <End Type="EnssiAuthenticateModel.User" Role="User" Multiplicity="1" />
+    <End Type="EnssiAuthenticateModel.UserToken" Role="UserToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserToken">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserToRole_User">
+    <End Type="EnssiAuthenticateModel.User" Role="User" Multiplicity="1" />
+    <End Type="EnssiAuthenticateModel.UserToRole" Role="UserToRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserToRole">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

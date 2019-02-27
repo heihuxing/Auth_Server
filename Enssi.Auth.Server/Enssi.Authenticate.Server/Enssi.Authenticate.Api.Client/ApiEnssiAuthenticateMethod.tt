@@ -1,0 +1,205 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Web" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Web" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+<#
+var CallName = "ApiEnssiAuthenticate";
+var ClassName = "ApiEnssiAuthenticateMethod";
+var Using = new[] { "Enssi.Authenticate.Data", "Enssi.Authenticate.Model" };
+var LoadPath = HttpUtility.UrlDecode(new Uri(new Uri(Host.TemplateFile), @"..\Enssi.Authenticate.Api\Controllers").AbsolutePath);
+var NameSpace = "Enssi";
+var Types = new List<string>{ "sbyte","byte","short","ushort","int","uint","long","ulong","char","float","double","bool","decimal","string","DateTime","Guid" };
+Types.AddRange(Types.Select(a => a + @"\?").ToList());
+Types.AddRange(Types.Select(a => @"Nullable\<" + a + @"\>").ToList());
+
+var files = Directory.GetFiles(LoadPath);
+
+#>
+using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
+<#
+foreach (var item in Using)
+{
+	WriteLine("using " + item + ";");
+}
+#>
+
+namespace <#=NameSpace#>
+{
+	/// <summary>
+	/// Api 方法
+	/// </summary>
+	public class <#=ClassName#>
+	{<#
+foreach (var file in files)
+{
+    if (Path.GetExtension(file) != ".cs")
+    {
+        continue;
+    }
+    var reader = File.OpenText(file);
+    var str = reader.ReadToEnd();
+    var classMatch = Regex.Match(str, @"    public class ([^\s]*)\s+:\s+([^\s]*)");
+    var classname = classMatch.Groups[1].Value.Replace("Controller", "");
+	var extend = classMatch.Groups[2].Value;
+	if(extend != "ApiController")
+	{
+		continue;
+    }
+    var matches = Regex.Matches(str, @"((\r?\n        ///[^\r\n]*)+)?((\r?\n        \[[^\r\n]+)+)?\r?\n        public (async )?([^\s]*) ([^\s]*)\(([^)]*)\)");
+	
+    foreach (Match match in matches.Cast<Match>().Distinct().Where(a=>a.Value != ""))
+    {
+        var OldSummary = match.Groups[1].Value;
+        var Attribute = match.Groups[3].Value;
+		var OldResultType = match.Groups[6].Value;
+		var OldMethodName = match.Groups[7].Value;
+		var OldParameter = match.Groups[8].Value;
+        var OldActionName = Regex.Match(Attribute, @"\[ActionName\(\""([^\""]*)\""\)\]").Groups[1].Value;
+		var Summary = OldSummary.Trim('\r', '\n', ' ').Replace("\n","\r\n").Replace("\r\r", "\r");
+        var HttpMethod = StringPlusMethod.IsEmpty(Regex.Match(Attribute, @"\[(HttpGet|HttpPost|HttpPut|HttpDelete)\]").Groups[1].Value, OldMethodName.StartsWith("Get") ? "HttpGet" : "HttpPost");
+		var ActionName = string.IsNullOrEmpty(OldActionName) ? OldMethodName : OldActionName;
+        var MethodName = classname + "_" + OldMethodName;
+        var Parameter = GetParameter(OldParameter);
+		if(OldResultType.StartsWith("Task<"))
+		{
+			OldResultType = OldResultType.Substring(5);
+			OldResultType = OldResultType.Remove(OldResultType.Length -1);
+        }
+		if(OldResultType.StartsWith("System.Threading.Tasks.Task<"))
+		{
+			OldResultType = OldResultType.Substring(28);
+			OldResultType = OldResultType.Remove(OldResultType.Length -1);
+        }
+		var ResultType = Parameter.Any(b => b[1].StartsWith("Selector")) ? OldResultType.Replace("<object>", "<T>") : OldResultType;
+		#>
+
+		<#=Summary#>
+		public static async Task<<#=ResultType#>> <#=MethodName + (Parameter.Any(b => b[1].StartsWith("Selector")) ? "<T>" : "")#>(<#=string.Join(", ", Parameter.Select(b => GetParameterType(b) + " " + b[1] + " = default(" + GetParameterType(b) + ")"))#>)
+		{
+			var request = new
+			{
+<#
+        foreach (var item in Parameter.Where(b => Types.Any(c => Regex.IsMatch(b[0], c))))
+        {
+			if(item[1].StartsWith("UpLoadFile"))
+            {
+				#>
+				<#=item[1]#> = "<#=item[1].Substring(10)#>",
+<#
+            }
+			else
+            {
+		 #>
+				<#=item[1]#> = <#=item[1]#>,
+<#
+            }
+        }
+			#>
+			};
+<#
+		var frombodyobj = Parameter.Where(b => !Types.Any(c => Regex.IsMatch(b[0], c))).Select(b => b[1]).FirstOrDefault();
+		var uploadfiles = Parameter.Where(b => b[1].StartsWith("UpLoadFile"));
+		if(uploadfiles.Any())
+        {
+		#>
+			var uploads = new Dictionary<string, object>
+			{
+<#
+            foreach (var item in uploadfiles)
+            {
+			if(frombodyobj != null)
+            {
+			#>
+				{ "<#=frombodyobj#>", <#=frombodyobj#> },
+<#
+            }
+			#>
+				{ "<#=item[1].Substring(10)#>", <#=item[1]#> },
+<#
+            }
+			#>
+			};
+<#
+        }
+		#>
+			return await <#=CallName#>.<#=HttpMethod.Replace("Http", "")#>Async<<#=ResultType#>>(ApiCall.QueryString("/api/<#=classname + "/" + ActionName#>", request)<#=HttpMethod == "HttpPost" ? (", " + (uploadfiles.Any() ? "uploads" : frombodyobj ?? "null")) : ""#>);
+		}
+<#
+    }
+}
+#>
+	}
+}
+<#+
+    public static string GetParameterType(string[] parameter)
+    {
+        if (parameter[1].StartsWith("Predicate"))
+        {
+            return "List<Expression<Func<" + parameter[1].Substring(9) + ", bool>>>";
+        }
+        else if (parameter[1].StartsWith("OrderBy"))
+        {
+            return "Dictionary<Expression<Func<" + parameter[1].Substring(7) + ", object>>, string>";
+        }
+        else if (parameter[1].StartsWith("Selector"))
+        {
+            return "Expression<Func<" + parameter[1].Substring(8) + ", T>>";
+        }
+        else if (parameter[1].StartsWith("UpLoadFile"))
+        {
+            return "HttpFile";
+        }
+        else
+        {
+            return parameter[0];
+        }
+    }
+
+    public static string[][] GetParameter(string parameters)
+    {
+        var count = parameters.Where(a => a == '<').Count();
+        if (count == 0)
+        {
+            count = 1;
+        }
+        var matches = Regex.Matches(parameters, StringPlusMethod.ReCount("[^,]*|[^()]*<" + "(?:[^()]|<", count) + StringPlusMethod.ReCount("[^()]*" + ">)*", count) + ">[^,]*");
+
+        var result = matches.Cast<Match>().Where(a => a.Value != "").Select(a => a.Value.Substring(0, a.Value.LastIndexOf(' ')).Trim() + "|" + a.Value.Substring(a.Value.LastIndexOf(' ') + 1)).Select(a => a.Split('|')).ToArray();
+
+        return result;
+    }
+
+    public static class StringPlusMethod
+    {
+        public static string ReCount(string str, int count)
+        {
+            var result = new StringBuilder();
+            for (int i = 0; i < count; i++)
+            {
+                result.Append(str);
+            }
+            return result.ToString();
+        }
+
+        public static string IsEmpty(string str, string value)
+        {
+            if (string.IsNullOrEmpty(str))
+            {
+                return value;
+            }
+            return str;
+        }
+    }
+#>

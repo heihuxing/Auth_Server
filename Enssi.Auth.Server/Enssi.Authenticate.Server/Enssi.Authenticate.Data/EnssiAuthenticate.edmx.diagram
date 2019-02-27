@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e79f19e63da34228826f0dc134f46e84" Name="Diagram1">
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.Application" Width="1.5" PointX="3" PointY="10.625" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.ApproveLog" Width="1.5" PointX="12.75" PointY="5.875" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.ApproveTemplate" Width="1.5" PointX="8.25" PointY="0.75" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.ApproveTemplateDetail" Width="1.5" PointX="10.5" PointY="6.25" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.CommonWords" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.InterfaceDetail" Width="1.5" PointX="12" PointY="11.875" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.InterfaceDetailHist" Width="1.5" PointX="12.75" PointY="1.125" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.InterfaceMain" Width="1.5" PointX="9.75" PointY="11.375" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.InterfaceMainHist" Width="1.5" PointX="14.75" PointY="1.125" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.Organization" Width="1.5" PointX="3" PointY="6.25" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.OrganizationGeneral" Width="1.5" PointX="0.75" PointY="6.875" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.PermissionBtn" Width="1.5" PointX="5.25" PointY="14.375" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.PermissionBtnInterface" Width="1.5" PointX="7.5" PointY="13" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.PermissionBtnRole" Width="1.5" PointX="7.5" PointY="10" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.PermissionGroup" Width="1.5" PointX="3" PointY="14.5" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.PermissionInterface" Width="1.5" PointX="5.25" PointY="10.375" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.PermissionInterfaceRole" Width="1.5" PointX="7.5" PointY="7" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.Role" Width="1.5" PointX="5.25" PointY="6.625" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.UserToken" Width="1.5" PointX="10.5" PointY="2.625" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.UserToRole" Width="1.5" PointX="7.5" PointY="4" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.sysdiagrams" Width="1.5" PointX="14.75" PointY="6.125" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.V_PermissionBtnQuery" Width="1.5" PointX="14.75" PointY="9.125" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.V_PermissionBtnRoleQuery" Width="1.5" PointX="11.75" PointY="15.125" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.V_PermissionInterfaceQuery" Width="1.5" PointX="14.75" PointY="13.125" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.V_UserPermissionQuery" Width="1.5" PointX="7.75" PointY="16.125" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.V_UserToRoleQuery" Width="1.5" PointX="16.75" PointY="1.125" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_PremissionBtn_Application" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_PremissionGroup_Application" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_PremissionInterface_Application" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_UserToken_Application" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_UserToken_ApplicationUsing" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_ApproveLog_ApproveTemplate" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_ApproveLog_ApproveTemplateDetail" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_ApproveTempletDetail_ApproveTemplet" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_ApproveTemplateDetail_Role" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_InterfaceDetail_InterfaceMain" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_Organization_Organization" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_Organization_OrganizationGeneral" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_Role_Organization" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_PremissionBtn_PremissionGroup" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_PremissionBtnInterface_PremissionBtn" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_PremissionBtnRole_PremissionBtn" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_PremissionBtnInterface_PremissionInterface" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_PremissionBtnRole_Role" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_PremissionInterfaceRole_PremissionInterface" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_PremissionInterfaceRole_Role" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_UserToRole_Role" />
+        <EntityTypeShape EntityType="EnssiAuthenticateModel.User" Width="1.5" PointX="5.25" PointY="2.75" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_UserToken_User" />
+        <AssociationConnector Association="EnssiAuthenticateModel.FK_UserToRole_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

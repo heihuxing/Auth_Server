@@ -1,0 +1,880 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EnssiAuthenticateModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="NameSpace" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ApproveLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Keys" Type="varchar" MaxLength="50" />
+    <Property Name="TemplateID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TemplateDetailID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Rank" Type="int" Nullable="false" />
+    <Property Name="RankName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="ApproveUserID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ApproveUserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Result" Type="int" Nullable="false" />
+    <Property Name="ResultState" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Reason" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="ApproveTime" Type="datetime" Nullable="false" />
+    <Property Name="HistoryData" Type="varchar(max)" />
+    <Property Name="NextRank" Type="int" />
+  </EntityType>
+  <EntityType Name="ApproveTemplate">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SystemName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ModuleName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Remark" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="PassState" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ApproveTemplateDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TemplateID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Rank" Type="int" Nullable="false" />
+    <Property Name="RankName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PassRank" Type="int" />
+    <Property Name="PassState" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RejectRank" Type="int" Nullable="false" />
+    <Property Name="RejectState" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RoleID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CommonWords">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CommonID" Type="varchar" MaxLength="50" />
+    <Property Name="CommonNo" Type="varchar" MaxLength="100" />
+    <Property Name="CommonName" Type="varchar" MaxLength="100" />
+    <Property Name="Remark" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="InterfaceDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="InterfaceID" Type="uniqueidentifier" />
+    <Property Name="ParameterNo" Type="varchar" MaxLength="50" />
+    <Property Name="ParameterName" Type="varchar" MaxLength="50" />
+    <Property Name="ParameterType" Type="varchar" MaxLength="20" />
+    <Property Name="ParameterLen" Type="int" />
+    <Property Name="IsNull" Type="int" />
+  </EntityType>
+  <EntityType Name="InterfaceDetailHist">
+    <Key>
+      <PropertyRef Name="PK" />
+    </Key>
+    <Property Name="PK" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="InterfaceID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ParameterNo" Type="varchar" MaxLength="50" />
+    <Property Name="ParameterName" Type="varchar" MaxLength="50" />
+    <Property Name="ParameterType" Type="varchar" MaxLength="20" />
+    <Property Name="ParameterLen" Type="int" />
+    <Property Name="IsNull" Type="int" />
+    <Property Name="Flag" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="InterfaceMain">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="InterfaceNo" Type="varchar" MaxLength="100" />
+    <Property Name="BelongSystem" Type="varchar" MaxLength="100" />
+    <Property Name="BelongModule" Type="varchar" MaxLength="100" />
+    <Property Name="Operation" Type="varchar" MaxLength="20" />
+    <Property Name="InExample" Type="varchar(max)" />
+    <Property Name="OutExample" Type="varchar(max)" />
+    <Property Name="Parameter" Type="varchar(max)" />
+    <Property Name="Remark" Type="varchar" MaxLength="200" />
+    <Property Name="IsDeleted" Type="int" />
+    <Property Name="CreateUserID" Type="uniqueidentifier" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="InterfaceMainHist">
+    <Key>
+      <PropertyRef Name="PK" />
+    </Key>
+    <Property Name="PK" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="InterfaceNo" Type="varchar" MaxLength="100" />
+    <Property Name="BelongSystem" Type="varchar" MaxLength="100" />
+    <Property Name="BelongModule" Type="varchar" MaxLength="100" />
+    <Property Name="Operation" Type="varchar" MaxLength="20" />
+    <Property Name="InExample" Type="varchar(max)" />
+    <Property Name="OutExample" Type="varchar(max)" />
+    <Property Name="Parameter" Type="varchar(max)" />
+    <Property Name="Remark" Type="varchar" MaxLength="200" />
+    <Property Name="IsDeleted" Type="int" />
+    <Property Name="CreateUserID" Type="uniqueidentifier" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="Flag" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Organization">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="ParentID" Type="uniqueidentifier" />
+    <Property Name="Sort" Type="int" Nullable="false" />
+    <Property Name="Path" Type="nvarchar(max)" />
+    <Property Name="IdPath" Type="nvarchar(max)" />
+    <Property Name="GeneralID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="OrganizationGeneral">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="Group" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PermissionBtn">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ButtonName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FormName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ApplicationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PermissionGroupID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NoPermissionType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PermissionBtnInterface">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PermissionButtonID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PermissionInterfaceID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PermissionBtnRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PermissionButtonID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PermissionGroup">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ApplicationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ParentID" Type="uniqueidentifier" />
+    <Property Name="Sort" Type="int" Nullable="false" />
+    <Property Name="IdPath" Type="nvarchar(max)" />
+    <Property Name="Path" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="PermissionInterface">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ApplicationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ControllerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MethodName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ActionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="QueryString" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="PermissionInterfaceRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PermissionInterfaceID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“EnssiAuthenticate.dbo.sysdiagrams”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="name" />
+      <PropertyRef Name="principal_id" />
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Account" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Signature" Type="varbinary(max)" />
+    <Property Name="Fingerprint" Type="varbinary(max)" />
+    <Property Name="FingerprintSpare" Type="varbinary(max)" />
+    <Property Name="IsDeleted" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserToken">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ApplicationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Token" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+    <Property Name="UsingApplicationID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserToRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6013: 表/视图“EnssiAuthenticate.dbo.V_OrganizationGeneralByType”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="V_OrganizationGeneralByType">
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="GeneralID" Type="uniqueidentifier" />
+          <Property Name="Expr3" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“EnssiAuthenticate.dbo.V_PermissionBtnQuery”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="V_PermissionBtnQuery">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ApplicationID" />
+      <PropertyRef Name="PermissionGroupID" />
+      <PropertyRef Name="Sort" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ButtonName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FormName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ApplicationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PermissionGroupID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ApplicationName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PermissionGroupName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PermissionGroupPath" Type="nvarchar(max)" />
+    <Property Name="PermissionGroupIdPath" Type="nvarchar(max)" />
+    <Property Name="Sort" Type="int" Nullable="false" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“EnssiAuthenticate.dbo.V_PermissionBtnRoleQuery”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="V_PermissionBtnRoleQuery">
+    <Key>
+      <PropertyRef Name="PermissionButtonID" />
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="PermissionButtonID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“EnssiAuthenticate.dbo.V_PermissionInterfaceQuery”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="V_PermissionInterfaceQuery">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="ApplicationID" />
+      <PropertyRef Name="ControllerName" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ApplicationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ControllerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MethodName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ActionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="QueryString" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="AName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“EnssiAuthenticate.dbo.V_UserPermissionQuery”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="V_UserPermissionQuery">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="PermissionButtonID" />
+      <PropertyRef Name="ApplicationID" />
+      <PropertyRef Name="PermissionGroupID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Account" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="PermissionButtonID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ButtonName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FormName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ApplicationID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PermissionGroupID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="AppName" Type="nvarchar" MaxLength="50" />
+    <Property Name="NameSpace" Type="nvarchar" MaxLength="50" />
+    <Property Name="AppDescription" Type="nvarchar(max)" />
+    <Property Name="PermissionGroupName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ParentID" Type="uniqueidentifier" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“EnssiAuthenticate.dbo.V_UserToRoleQuery”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="V_UserToRoleQuery">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="CreateTime" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Account" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Path" Type="nvarchar(max)" />
+    <Property Name="IdPath" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_ApproveLog_ApproveTemplate">
+    <End Role="ApproveTemplate" Type="Self.ApproveTemplate" Multiplicity="1" />
+    <End Role="ApproveLog" Type="Self.ApproveLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApproveTemplate">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ApproveLog">
+        <PropertyRef Name="TemplateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApproveLog_ApproveTemplateDetail">
+    <End Role="ApproveTemplateDetail" Type="Self.ApproveTemplateDetail" Multiplicity="1" />
+    <End Role="ApproveLog" Type="Self.ApproveLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApproveTemplateDetail">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ApproveLog">
+        <PropertyRef Name="TemplateDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApproveTemplateDetail_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="ApproveTemplateDetail" Type="Self.ApproveTemplateDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ApproveTemplateDetail">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApproveTempletDetail_ApproveTemplet">
+    <End Role="ApproveTemplate" Type="Self.ApproveTemplate" Multiplicity="1" />
+    <End Role="ApproveTemplateDetail" Type="Self.ApproveTemplateDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApproveTemplate">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ApproveTemplateDetail">
+        <PropertyRef Name="TemplateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InterfaceDetail_InterfaceMain">
+    <End Role="InterfaceMain" Type="Self.InterfaceMain" Multiplicity="0..1" />
+    <End Role="InterfaceDetail" Type="Self.InterfaceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InterfaceMain">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="InterfaceDetail">
+        <PropertyRef Name="InterfaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Organization_Organization">
+    <End Role="Organization" Type="Self.Organization" Multiplicity="0..1" />
+    <End Role="Organization1" Type="Self.Organization" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Organization1">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Organization_OrganizationGeneral">
+    <End Role="OrganizationGeneral" Type="Self.OrganizationGeneral" Multiplicity="0..1" />
+    <End Role="Organization" Type="Self.Organization" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrganizationGeneral">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Organization">
+        <PropertyRef Name="GeneralID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionBtn_Application">
+    <End Role="Application" Type="Self.Application" Multiplicity="1" />
+    <End Role="PermissionBtn" Type="Self.PermissionBtn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionBtn">
+        <PropertyRef Name="ApplicationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionBtn_PremissionGroup">
+    <End Role="PermissionGroup" Type="Self.PermissionGroup" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PermissionBtn" Type="Self.PermissionBtn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PermissionGroup">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionBtn">
+        <PropertyRef Name="PermissionGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionBtnInterface_PremissionBtn">
+    <End Role="PermissionBtn" Type="Self.PermissionBtn" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PermissionBtnInterface" Type="Self.PermissionBtnInterface" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PermissionBtn">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionBtnInterface">
+        <PropertyRef Name="PermissionButtonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionBtnInterface_PremissionInterface">
+    <End Role="PermissionInterface" Type="Self.PermissionInterface" Multiplicity="1" />
+    <End Role="PermissionBtnInterface" Type="Self.PermissionBtnInterface" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PermissionInterface">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionBtnInterface">
+        <PropertyRef Name="PermissionInterfaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionBtnRole_PremissionBtn">
+    <End Role="PermissionBtn" Type="Self.PermissionBtn" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PermissionBtnRole" Type="Self.PermissionBtnRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PermissionBtn">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionBtnRole">
+        <PropertyRef Name="PermissionButtonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionBtnRole_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PermissionBtnRole" Type="Self.PermissionBtnRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionBtnRole">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionGroup_Application">
+    <End Role="Application" Type="Self.Application" Multiplicity="1" />
+    <End Role="PermissionGroup" Type="Self.PermissionGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionGroup">
+        <PropertyRef Name="ApplicationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionInterface_Application">
+    <End Role="Application" Type="Self.Application" Multiplicity="1" />
+    <End Role="PermissionInterface" Type="Self.PermissionInterface" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionInterface">
+        <PropertyRef Name="ApplicationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionInterfaceRole_PremissionInterface">
+    <End Role="PermissionInterface" Type="Self.PermissionInterface" Multiplicity="1" />
+    <End Role="PermissionInterfaceRole" Type="Self.PermissionInterfaceRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PermissionInterface">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionInterfaceRole">
+        <PropertyRef Name="PermissionInterfaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PremissionInterfaceRole_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PermissionInterfaceRole" Type="Self.PermissionInterfaceRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermissionInterfaceRole">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Role_Organization">
+    <End Role="Organization" Type="Self.Organization" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Role">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserToken_Application">
+    <End Role="Application" Type="Self.Application" Multiplicity="1" />
+    <End Role="UserToken" Type="Self.UserToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserToken">
+        <PropertyRef Name="ApplicationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserToken_ApplicationUsing">
+    <End Role="Application" Type="Self.Application" Multiplicity="1" />
+    <End Role="UserToken" Type="Self.UserToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserToken">
+        <PropertyRef Name="UsingApplicationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserToken_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserToken" Type="Self.UserToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserToken">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserToRole_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="UserToRole" Type="Self.UserToRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserToRole">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserToRole_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserToRole" Type="Self.UserToRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserToRole">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Fn_InsertKey" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="Type" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Fn_InsertKey2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+    <Parameter Name="Type" Type="int" Mode="In" />
+    <Parameter Name="Para1" Type="varchar" Mode="In" />
+    <Parameter Name="Para2" Type="varchar" Mode="In" />
+    <Parameter Name="Para3" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_OrganizationQuery" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="varchar" Mode="In" />
+    <Parameter Name="type" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_PermissionGroupQuery" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="varchar" Mode="In" />
+    <Parameter Name="appname" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="EnssiAuthenticateModelStoreContainer">
+    <EntitySet Name="Application" EntityType="Self.Application" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ApproveLog" EntityType="Self.ApproveLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ApproveTemplate" EntityType="Self.ApproveTemplate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ApproveTemplateDetail" EntityType="Self.ApproveTemplateDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommonWords" EntityType="Self.CommonWords" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InterfaceDetail" EntityType="Self.InterfaceDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InterfaceDetailHist" EntityType="Self.InterfaceDetailHist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InterfaceMain" EntityType="Self.InterfaceMain" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InterfaceMainHist" EntityType="Self.InterfaceMainHist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Organization" EntityType="Self.Organization" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrganizationGeneral" EntityType="Self.OrganizationGeneral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PermissionBtn" EntityType="Self.PermissionBtn" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PermissionBtnInterface" EntityType="Self.PermissionBtnInterface" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PermissionBtnRole" EntityType="Self.PermissionBtnRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PermissionGroup" EntityType="Self.PermissionGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PermissionInterface" EntityType="Self.PermissionInterface" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PermissionInterfaceRole" EntityType="Self.PermissionInterfaceRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserToken" EntityType="Self.UserToken" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserToRole" EntityType="Self.UserToRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sysdiagrams].[name] AS [name], 
+    [sysdiagrams].[principal_id] AS [principal_id], 
+    [sysdiagrams].[diagram_id] AS [diagram_id], 
+    [sysdiagrams].[version] AS [version], 
+    [sysdiagrams].[definition] AS [definition]
+    FROM [dbo].[sysdiagrams] AS [sysdiagrams]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_PermissionBtnQuery" EntityType="Self.V_PermissionBtnQuery" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_PermissionBtnQuery].[ID] AS [ID], 
+    [V_PermissionBtnQuery].[ButtonName] AS [ButtonName], 
+    [V_PermissionBtnQuery].[FormName] AS [FormName], 
+    [V_PermissionBtnQuery].[DisplayName] AS [DisplayName], 
+    [V_PermissionBtnQuery].[ApplicationID] AS [ApplicationID], 
+    [V_PermissionBtnQuery].[PermissionGroupID] AS [PermissionGroupID], 
+    [V_PermissionBtnQuery].[ApplicationName] AS [ApplicationName], 
+    [V_PermissionBtnQuery].[PermissionGroupName] AS [PermissionGroupName], 
+    [V_PermissionBtnQuery].[PermissionGroupPath] AS [PermissionGroupPath], 
+    [V_PermissionBtnQuery].[PermissionGroupIdPath] AS [PermissionGroupIdPath], 
+    [V_PermissionBtnQuery].[Sort] AS [Sort]
+    FROM [dbo].[V_PermissionBtnQuery] AS [V_PermissionBtnQuery]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_PermissionBtnRoleQuery" EntityType="Self.V_PermissionBtnRoleQuery" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_PermissionBtnRoleQuery].[PermissionButtonID] AS [PermissionButtonID], 
+    [V_PermissionBtnRoleQuery].[RoleID] AS [RoleID], 
+    [V_PermissionBtnRoleQuery].[UserID] AS [UserID], 
+    [V_PermissionBtnRoleQuery].[Name] AS [Name]
+    FROM [dbo].[V_PermissionBtnRoleQuery] AS [V_PermissionBtnRoleQuery]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_PermissionInterfaceQuery" EntityType="Self.V_PermissionInterfaceQuery" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_PermissionInterfaceQuery].[ID] AS [ID], 
+    [V_PermissionInterfaceQuery].[Name] AS [Name], 
+    [V_PermissionInterfaceQuery].[ApplicationID] AS [ApplicationID], 
+    [V_PermissionInterfaceQuery].[ControllerName] AS [ControllerName], 
+    [V_PermissionInterfaceQuery].[MethodName] AS [MethodName], 
+    [V_PermissionInterfaceQuery].[ActionName] AS [ActionName], 
+    [V_PermissionInterfaceQuery].[QueryString] AS [QueryString], 
+    [V_PermissionInterfaceQuery].[Description] AS [Description], 
+    [V_PermissionInterfaceQuery].[AName] AS [AName]
+    FROM [dbo].[V_PermissionInterfaceQuery] AS [V_PermissionInterfaceQuery]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_UserPermissionQuery" EntityType="Self.V_UserPermissionQuery" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_UserPermissionQuery].[ID] AS [ID], 
+    [V_UserPermissionQuery].[Account] AS [Account], 
+    [V_UserPermissionQuery].[Name] AS [Name], 
+    [V_UserPermissionQuery].[UserID] AS [UserID], 
+    [V_UserPermissionQuery].[RoleID] AS [RoleID], 
+    [V_UserPermissionQuery].[RoleName] AS [RoleName], 
+    [V_UserPermissionQuery].[Description] AS [Description], 
+    [V_UserPermissionQuery].[PermissionButtonID] AS [PermissionButtonID], 
+    [V_UserPermissionQuery].[ButtonName] AS [ButtonName], 
+    [V_UserPermissionQuery].[FormName] AS [FormName], 
+    [V_UserPermissionQuery].[DisplayName] AS [DisplayName], 
+    [V_UserPermissionQuery].[ApplicationID] AS [ApplicationID], 
+    [V_UserPermissionQuery].[PermissionGroupID] AS [PermissionGroupID], 
+    [V_UserPermissionQuery].[AppName] AS [AppName], 
+    [V_UserPermissionQuery].[NameSpace] AS [NameSpace], 
+    [V_UserPermissionQuery].[AppDescription] AS [AppDescription], 
+    [V_UserPermissionQuery].[PermissionGroupName] AS [PermissionGroupName], 
+    [V_UserPermissionQuery].[ParentID] AS [ParentID]
+    FROM [dbo].[V_UserPermissionQuery] AS [V_UserPermissionQuery]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_UserToRoleQuery" EntityType="Self.V_UserToRoleQuery" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_UserToRoleQuery].[ID] AS [ID], 
+    [V_UserToRoleQuery].[UserID] AS [UserID], 
+    [V_UserToRoleQuery].[RoleID] AS [RoleID], 
+    [V_UserToRoleQuery].[Account] AS [Account], 
+    [V_UserToRoleQuery].[Password] AS [Password], 
+    [V_UserToRoleQuery].[UserName] AS [UserName], 
+    [V_UserToRoleQuery].[CreateTime] AS [CreateTime], 
+    [V_UserToRoleQuery].[RoleName] AS [RoleName], 
+    [V_UserToRoleQuery].[Description] AS [Description], 
+    [V_UserToRoleQuery].[Path] AS [Path], 
+    [V_UserToRoleQuery].[IdPath] AS [IdPath]
+    FROM [dbo].[V_UserToRoleQuery] AS [V_UserToRoleQuery]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_ApproveLog_ApproveTemplate" Association="Self.FK_ApproveLog_ApproveTemplate">
+      <End Role="ApproveTemplate" EntitySet="ApproveTemplate" />
+      <End Role="ApproveLog" EntitySet="ApproveLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApproveLog_ApproveTemplateDetail" Association="Self.FK_ApproveLog_ApproveTemplateDetail">
+      <End Role="ApproveTemplateDetail" EntitySet="ApproveTemplateDetail" />
+      <End Role="ApproveLog" EntitySet="ApproveLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApproveTemplateDetail_Role" Association="Self.FK_ApproveTemplateDetail_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="ApproveTemplateDetail" EntitySet="ApproveTemplateDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApproveTempletDetail_ApproveTemplet" Association="Self.FK_ApproveTempletDetail_ApproveTemplet">
+      <End Role="ApproveTemplate" EntitySet="ApproveTemplate" />
+      <End Role="ApproveTemplateDetail" EntitySet="ApproveTemplateDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InterfaceDetail_InterfaceMain" Association="Self.FK_InterfaceDetail_InterfaceMain">
+      <End Role="InterfaceMain" EntitySet="InterfaceMain" />
+      <End Role="InterfaceDetail" EntitySet="InterfaceDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Organization_Organization" Association="Self.FK_Organization_Organization">
+      <End Role="Organization" EntitySet="Organization" />
+      <End Role="Organization1" EntitySet="Organization" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Organization_OrganizationGeneral" Association="Self.FK_Organization_OrganizationGeneral">
+      <End Role="OrganizationGeneral" EntitySet="OrganizationGeneral" />
+      <End Role="Organization" EntitySet="Organization" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionBtn_Application" Association="Self.FK_PremissionBtn_Application">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="PermissionBtn" EntitySet="PermissionBtn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionBtn_PremissionGroup" Association="Self.FK_PremissionBtn_PremissionGroup">
+      <End Role="PermissionGroup" EntitySet="PermissionGroup" />
+      <End Role="PermissionBtn" EntitySet="PermissionBtn" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionBtnInterface_PremissionBtn" Association="Self.FK_PremissionBtnInterface_PremissionBtn">
+      <End Role="PermissionBtn" EntitySet="PermissionBtn" />
+      <End Role="PermissionBtnInterface" EntitySet="PermissionBtnInterface" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionBtnInterface_PremissionInterface" Association="Self.FK_PremissionBtnInterface_PremissionInterface">
+      <End Role="PermissionInterface" EntitySet="PermissionInterface" />
+      <End Role="PermissionBtnInterface" EntitySet="PermissionBtnInterface" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionBtnRole_PremissionBtn" Association="Self.FK_PremissionBtnRole_PremissionBtn">
+      <End Role="PermissionBtn" EntitySet="PermissionBtn" />
+      <End Role="PermissionBtnRole" EntitySet="PermissionBtnRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionBtnRole_Role" Association="Self.FK_PremissionBtnRole_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="PermissionBtnRole" EntitySet="PermissionBtnRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionGroup_Application" Association="Self.FK_PremissionGroup_Application">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="PermissionGroup" EntitySet="PermissionGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionInterface_Application" Association="Self.FK_PremissionInterface_Application">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="PermissionInterface" EntitySet="PermissionInterface" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionInterfaceRole_PremissionInterface" Association="Self.FK_PremissionInterfaceRole_PremissionInterface">
+      <End Role="PermissionInterface" EntitySet="PermissionInterface" />
+      <End Role="PermissionInterfaceRole" EntitySet="PermissionInterfaceRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PremissionInterfaceRole_Role" Association="Self.FK_PremissionInterfaceRole_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="PermissionInterfaceRole" EntitySet="PermissionInterfaceRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Role_Organization" Association="Self.FK_Role_Organization">
+      <End Role="Organization" EntitySet="Organization" />
+      <End Role="Role" EntitySet="Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserToken_Application" Association="Self.FK_UserToken_Application">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="UserToken" EntitySet="UserToken" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserToken_ApplicationUsing" Association="Self.FK_UserToken_ApplicationUsing">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="UserToken" EntitySet="UserToken" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserToken_User" Association="Self.FK_UserToken_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserToken" EntitySet="UserToken" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserToRole_Role" Association="Self.FK_UserToRole_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="UserToRole" EntitySet="UserToRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserToRole_User" Association="Self.FK_UserToRole_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserToRole" EntitySet="UserToRole" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
